@@ -19,6 +19,10 @@
     "less-middleware": "1.0.x",
     "socket.io": "~1.2.1"
   },
+  "devDependencies": {
+    "chai": "~1.10.0",
+    "mocha": "~2.0.1"
+  },
   "engines": {
     "node": ">=0.10.0"
   }
