@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prestart": "",
     "start": "DEBUG=tetris ./bin/www",
-    "start-node": "node ./bin/www",
     "test": "node_modules/mocha/bin/mocha --reporter spec --bail --check-leaks tests"
   },
   "dependencies": {
