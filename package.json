@@ -6,7 +6,7 @@
   "scripts": {
     "start": "DEBUG=tetris ./bin/www",
     "start-node": "node ./bin/www",
-    "test": "jasmine-node --verbose tests"
+    "test": "node_modules/mocha/bin/mocha --reporter spec --bail --check-leaks tests"
   },
   "dependencies": {
     "express": "~4.9.0",
