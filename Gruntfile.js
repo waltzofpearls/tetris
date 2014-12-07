@@ -12,8 +12,20 @@ module.exports = function(grunt) {
     'use strict';
 
     grunt.initConfig({
+        less: {
+            production: {
+                options: {
+                    strictMath: true,
+                    cleancss: true
+                },
+                src: 'public/stylesheets/style.less',
+                dest: 'public/stylesheets/style.css'
+            }
+        },
     });
 
-    require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+    require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
     require('time-grunt')(grunt);
+
+    grunt.registerTask('default', ['less:production']);
 };
