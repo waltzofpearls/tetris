@@ -28,4 +28,5 @@ module.exports = function(grunt) {
     require('time-grunt')(grunt);
 
     grunt.registerTask('default', ['less:production']);
+    grunt.registerTask('build', ['less:production']);
 };
