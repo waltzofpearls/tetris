@@ -13,6 +13,14 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         less: {
+            testing: {
+                options: {
+                    strictMath: true,
+                    compress: false
+                },
+                src: 'public/stylesheets/style.less',
+                dest: 'public/stylesheets/style.css'
+            },
             production: {
                 options: {
                     strictMath: true,
@@ -22,11 +30,20 @@ module.exports = function(grunt) {
                 dest: 'public/stylesheets/style.css'
             }
         },
+        requirejs: {
+            compile: {
+                options: {
+                    baseUrl: "public/javascripts/",
+                    mainConfigFile: "public/javascripts/main.js",
+                    out: "public/javascripts/script.js"
+                }
+            }
+        }
     });
 
     require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
     require('time-grunt')(grunt);
 
-    grunt.registerTask('default', ['less:production']);
-    grunt.registerTask('build', ['less:production']);
+    grunt.registerTask('build', ['less:production', 'requirejs:compile']);
+    grunt.registerTask('default', ['build']);
 };
