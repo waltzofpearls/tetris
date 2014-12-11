@@ -2,9 +2,17 @@ doctype html
 html
   head
     title= title
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/vnd.microsoft.icon')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    header
+      div
     block content
+    footer
+      div
     case process.env.NODE_ENV
       when 'testing'
       when 'production'
