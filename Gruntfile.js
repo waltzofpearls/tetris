@@ -30,6 +30,15 @@ module.exports = function(grunt) {
                 dest: 'public/stylesheets/style.css'
             }
         },
+        uglify: {
+            requirejs: {
+                files: {
+                    'public/javascripts/libs/require-2.1.15.min.js': [
+                        'public/javascripts/libs/require-2.1.15.js'
+                    ]
+                }
+            }
+        },
         requirejs: {
             compile: {
                 options: {
@@ -45,6 +54,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt, {scope: 'devDependencies'});
     require('time-grunt')(grunt);
 
-    grunt.registerTask('build', ['less:production', 'requirejs:compile']);
+    grunt.registerTask('build', ['less:production', 'uglify:requirejs', 'requirejs:compile']);
     grunt.registerTask('default', ['build']);
 };
