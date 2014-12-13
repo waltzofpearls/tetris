@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=tetris ./bin/www",
+    "start": "DEBUG=tetris node ./bin/www",
     "test": "node_modules/mocha/bin/mocha --reporter spec --bail --check-leaks tests",
     "build": "grunt build",
     "development": "NODE_ENV=development npm start",
