@@ -9,9 +9,16 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     header
-      div
+      div.container
+        div.navbar-header
+          button(class=['navbar-toggle', 'collapsed'] type='button' data-toggle='collapse' data-target='.tetris-navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a(href='/' class='navbar-brand') Tetries
       nav
-    article
+    div.container
       block content
     footer
       div
