@@ -1,4 +1,7 @@
 require.config({
+    shim: {
+        'bootstrap': {'deps': ['jquery']}
+    },
     paths: {
         jquery: 'libs/jquery-1.11.1',
         underscore: 'libs/underscore-1.7.0',
