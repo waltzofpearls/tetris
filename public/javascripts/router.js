@@ -1,13 +1,16 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
-], function($, _, Backbone) {
+    'backbone',
+    'views/about.js',
+    'views/projects/list.js',
+    'views/resume.js'
+], function($, _, Backbone, AboutView, ProjectsListView, ResumeView) {
     var AppRouter = Backbone.Router.extend({
         routes: {
             // Define some URL routes
             '/about': 'showAbout',
-            '/projects': 'showProjects',
+            '/projects': 'showProjectsList',
             '/resume': 'showResume',
             // Default
             '*actions': 'defaultAction'
@@ -17,25 +20,30 @@ define([
     var initialize = function() {
         var router = new AppRouter();
 
-        // app_router.on('showProjects', function(){
-        //   // Call render on the module we loaded in via the dependency array
-        //   // 'views/projects/list'
-        //   var projectListView = new ProjectListView();
-        //   projectListView.render();
-        // });
-        //   // As above, call render on our loaded module
-        //   // 'views/users/list'
-        // app_router.on('showUsers', function(){
-        //   var userListView = new UserListView();
-        //   userListView.render();
-        // });
+        router.on('showAbout', function(){
+            var aboutView = new AboutView();
+            aboutView.render();
+        });
+
+        router.on('showProjectsList', function(){
+            var projectsListView = new ProjectsListView();
+            projectsListView.render();
+        });
+
+        router.on('showResume', function(){
+            var resumeView = new ResumeView();
+            resumeView.render();
+        });
 
         router.on('defaultAction', function(actions) {
             // We have no matching route, lets just log what the URL was
             console.log('No route:', actions);
         });
 
-        Backbone.history.start();
+        Backbone.history.start({
+            pushState: true,
+            hashChange: false
+        });
     };
 
     return {
