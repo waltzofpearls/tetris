@@ -2,9 +2,9 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/about.js',
-    'views/projects/list.js',
-    'views/resume.js'
+    'views/about',
+    'views/projects/list',
+    'views/resume'
 ], function($, _, Backbone, AboutView, ProjectsListView, ResumeView) {
     var AppRouter = Backbone.Router.extend({
         routes: {
