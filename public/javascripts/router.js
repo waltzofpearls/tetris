@@ -44,6 +44,20 @@ define([
             pushState: true,
             hashChange: false
         });
+
+        // on every click, check if it's an href that can be handled by the router
+        $(document).on('click', 'a', function(evt) {
+            var href = $(this).attr('href');
+            var protocol = this.protocol + '//';
+
+            if (href.slice(protocol.length) !== protocol &&
+                protocol !== 'javascript://' &&
+                href.substring(0, 1) !== '#'
+            ) {
+                evt.preventDefault();
+                Backbone.history.navigate(href, true);
+            }
+        });
     };
 
     return {
