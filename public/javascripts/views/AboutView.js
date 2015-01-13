@@ -8,7 +8,7 @@ define([
     'text!templates/aboutTemplate.html'
 ], function($, _, Backbone, aboutTemplate){
     var AboutView = Backbone.View.extend({
-        el: $('#container'),
+        el: $('.tetris-main-container'),
 
         render: function() {
             // Using Underscore we can compile our template with data
@@ -16,7 +16,7 @@ define([
             var compiledTemplate = _.template(aboutTemplate, data);
 
             // Append our compiled template to this Views "el"
-            this.$el.append(compiledTemplate);
+            this.$el.html(compiledTemplate);
         }
     });
 
