@@ -2,16 +2,17 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'views/about',
-    'views/projects/list',
-    'views/resume'
-], function($, _, Backbone, AboutView, ProjectsListView, ResumeView) {
+    'views/HomeView',
+    'views/AboutView',
+    'views/projects/ProjectsListView',
+    'views/ResumeView'
+], function($, _, Backbone, HomeView, AboutView, ProjectsListView, ResumeView) {
     var AppRouter = Backbone.Router.extend({
         routes: {
             // Define some URL routes
-            '/about': 'showAbout',
-            '/projects': 'showProjectsList',
-            '/resume': 'showResume',
+            'about': 'showAbout',
+            'projects': 'showProjectsList',
+            'resume': 'showResume',
             // Default
             '*actions': 'defaultAction'
         }
@@ -20,28 +21,25 @@ define([
     var initialize = function() {
         var router = new AppRouter();
 
-        router.on('showAbout', function() {
-            console.log('showAbout');
+        router.on('route:showAbout', function() {
             var aboutView = new AboutView();
             aboutView.render();
         });
 
-        router.on('showProjectsList', function() {
-            console.log('showProjectsList');
+        router.on('route:showProjectsList', function() {
             var projectsListView = new ProjectsListView();
             projectsListView.render();
         });
 
-        router.on('showResume', function() {
-            console.log('showResume');
+        router.on('route:showResume', function() {
             var resumeView = new ResumeView();
             resumeView.render();
         });
 
-        router.on('defaultAction', function(actions) {
-            // We have no matching route, lets just log what the URL was
-            console.log('No route:', actions);
-            console.log('defaultAction');
+        router.on('route:defaultAction', function(actions) {
+            // no matching route, fall back to HomeView
+            var homeView = new HomeView();
+            homeView.render();
         });
 
         Backbone.history.start({
@@ -58,7 +56,7 @@ define([
                 href.substring(0, 1) !== '#'
             ) {
                 evt.preventDefault();
-                Backbone.history.navigate(href, true);
+                Backbone.history.navigate(href, {trigger: true});
             }
         });
     };
