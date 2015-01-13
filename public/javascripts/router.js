@@ -20,17 +20,20 @@ define([
     var initialize = function() {
         var router = new AppRouter();
 
-        router.on('showAbout', function(){
+        router.on('showAbout', function() {
+            console.log('showAbout');
             var aboutView = new AboutView();
             aboutView.render();
         });
 
-        router.on('showProjectsList', function(){
+        router.on('showProjectsList', function() {
+            console.log('showProjectsList');
             var projectsListView = new ProjectsListView();
             projectsListView.render();
         });
 
-        router.on('showResume', function(){
+        router.on('showResume', function() {
+            console.log('showResume');
             var resumeView = new ResumeView();
             resumeView.render();
         });
@@ -38,11 +41,11 @@ define([
         router.on('defaultAction', function(actions) {
             // We have no matching route, lets just log what the URL was
             console.log('No route:', actions);
+            console.log('defaultAction');
         });
 
         Backbone.history.start({
-            pushState: true,
-            hashChange: false
+            pushState: true
         });
 
         // on every click, check if it's an href that can be handled by the router
