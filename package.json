@@ -21,7 +21,9 @@
     "jade": "~1.6.0",
     "less-middleware": "1.0.x",
     "connect-redis": "~2.1.0",
-    "socket.io": "~1.2.1"
+    "socket.io": "~1.2.1",
+    "config": "~1.10.0",
+    "js-yaml": "~3.2.5"
   },
   "devDependencies": {
     "chai": "~1.10.0",
