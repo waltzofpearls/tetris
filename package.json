@@ -7,9 +7,9 @@
     "start": "DEBUG=tetris node ./bin/www",
     "test": "node_modules/.bin/mocha --reporter spec --bail --check-leaks tests",
     "build": "grunt build",
-    "development": "NODE_ENV=development NODE_CONFIG_DIR=configs npm start",
-    "testing": "NODE_ENV=testing NODE_CONFIG_DIR=configs npm start",
-    "production": "NODE_ENV=production NODE_CONFIG_DIR=configs npm start"
+    "development": "NODE_ENV=development npm start",
+    "testing": "NODE_ENV=testing npm start",
+    "production": "NODE_ENV=production npm start"
   },
   "dependencies": {
     "express": "~4.9.0",
@@ -26,7 +26,8 @@
     "config": "~1.10.0",
     "js-yaml": "~3.2.5",
     "nodemailer": "~1.3.0",
-    "github": "~0.2.3"
+    "github": "~0.2.3",
+    "q": "~1.1.2"
   },
   "devDependencies": {
     "chai": "~1.10.0",
