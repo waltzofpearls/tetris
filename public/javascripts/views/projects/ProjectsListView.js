@@ -3,23 +3,22 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    // Using the Require.js text! plugin, we are loaded raw text
-    // which will be used as our views primary template
+    'collections/projects/ProjectsListCollection',
     'text!templates/projects/projectsListTemplate.html'
-], function($, _, Backbone, projectsListTemplate){
+], function($, _, Backbone, ProjectsListCollection, projectsListTemplate) {
     var ProjectsListView = Backbone.View.extend({
         el: $('.tetris-main-container'),
 
         render: function() {
-            // Using Underscore we can compile our template with data
-            var data = {};
-            var compiledTemplate = _.template(projectsListTemplate, data);
+            this.collection = new ProjectsListCollection();
 
-            // Append our compiled template to this Views "el"
+            var compiledTemplate = _.template(projectsListTemplate, {
+                projects: this.collection.model
+            });
+
             this.$el.html(compiledTemplate);
         }
     });
 
-    // Our module now returns our view
     return ProjectsListView;
 });
