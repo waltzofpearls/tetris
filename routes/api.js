@@ -1,6 +1,7 @@
 var express = require('express');
 var config = require('config');
 var github = require('../lib/github');
+
 var router = express.Router();
 
 router.get('/', function(req, res) {
@@ -9,8 +10,14 @@ router.get('/', function(req, res) {
 
 router.get('/projects', function(req, res) {
     var gh = new github();
-    gh.getRepos();
-    res.send('respond with a resource');
+
+    gh.getRepos()
+        .then(function(_res) {
+            res.send(_res);
+        })
+        .fail(function(_err) {
+            res.send(_err);
+        });
 });
 
 module.exports = router;
