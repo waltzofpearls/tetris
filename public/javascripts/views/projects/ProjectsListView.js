@@ -11,6 +11,7 @@ define([
 
         render: function() {
             this.collection = new ProjectsListCollection();
+            this.collection.fetch();
 
             var compiledTemplate = _.template(projectsListTemplate, {
                 projects: this.collection.model
