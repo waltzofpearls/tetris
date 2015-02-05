@@ -10,14 +10,19 @@ define([
         el: $('.tetris-main-container'),
 
         render: function() {
-            this.collection = new ProjectsListCollection();
-            this.collection.fetch();
+            var that = this;
 
-            var compiledTemplate = _.template(projectsListTemplate, {
-                projects: this.collection.model
+            this.collection = new ProjectsListCollection();
+            this.collection.fetch({
+                success: function(collection, response) {
+                    that.$el.html(_.template(projectsListTemplate)({
+                        _: _,
+                        projects: collection.models
+                    }));
+                }
             });
 
-            this.$el.html(compiledTemplate);
+            this.$el.html('Loading');
         }
     });
 

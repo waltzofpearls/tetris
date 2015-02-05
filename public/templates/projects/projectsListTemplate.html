@@ -1,1 +1,5 @@
 projects list
+
+<% _.each(projects, function(project) { %>
+    <%= project.get('name') %>
+<% }); %>
