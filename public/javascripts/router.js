@@ -48,8 +48,15 @@ define([
 
         // on every click, check if it's an href that can be handled by the router
         $(document).on('click', 'a', function(evt) {
-            var href = $(this).attr('href');
+            var a = $(this);
+            var rel = a.attr('rel');
+            var href = a.attr('href');
             var protocol = this.protocol + '//';
+
+            if (rel == 'external') {
+                a.attr('target', '_blank');
+                return true;
+            }
 
             if (href.slice(protocol.length) !== protocol &&
                 protocol !== 'javascript://' &&
