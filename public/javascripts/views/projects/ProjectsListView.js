@@ -9,6 +9,10 @@ define([
     var ProjectsListView = Backbone.View.extend({
         el: $('.tetris-main-container'),
 
+        initialize: function() {
+            this.spinner = $('<img>').attr('src', '/images/spinner1.gif');
+        },
+
         render: function() {
             var that = this;
 
@@ -22,7 +26,8 @@ define([
                 }
             });
 
-            this.$el.html('Loading');
+            this.$el.html(this.spinner);
+            this.$el.html(this.$el.html() + ' Loading...');
         }
     });
 
