@@ -99,7 +99,6 @@ define([
             var smallLogoHeight = $('.small-logo').height();
             var bigLogoHeight = $('.big-logo').height();
             var navbarHeight = $('.navbar').height();
-            console.log(smallLogoHeight, bigLogoHeight, navbarHeight);
 
             var smallLogoEndPos = 0;
             var smallSpeed = (smallLogoHeight / bigLogoHeight);
@@ -117,7 +116,10 @@ define([
                 smallPadding = 0;
             }
 
-            $('.small-logo-container').css({'padding-top': smallPadding});
+            $('.small-logo-container').css({
+                'width': (smallLogoHeight > smallPadding) ? '50px' : 0,
+                'padding-top': smallPadding
+            });
 
             var navOpacity = ySmall / smallLogoHeight;
             if (navOpacity > 1) {
