@@ -9,8 +9,41 @@ h1, h2, h3, h4 {
     }
 }
 
-body {
-    padding-top: 100px;
+.small-logo-container {
+    padding-top: 50px;
+    height: 50px;
+    overflow: hidden;
+
+    .small-logo {
+        padding-bottom: 2px;
+        display: block;
+    }
+}
+
+.big-logo-row {
+    .big-logo-container {
+        padding-top: 50px;
+
+        a, span {
+            display: inline-block;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+    }
+    h1 {
+        font-size: 2em;
+        margin: 0;
+        padding: 0 0 15px 0;
+
+        // smartphone
+        @media (max-width:767px) { font-size: 2em; }
+        // tablet
+        @media (min-width:768px) { font-size: 3em; }
+        // desktop
+        @media (min-width:992px) { font-size: 4em; }
+        // large desktop
+        @media (min-width:1200px) { font-size: 5em; }
+    }
 }
 
 // smartphone

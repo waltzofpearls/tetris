@@ -15,6 +15,27 @@ define([
             'resume': 'showResume',
             // Default
             '*actions': 'defaultAction'
+        },
+
+        titles: {
+            'showAbout': 'About',
+            'showProjectsList': 'Projects',
+            'showResume': 'Resume',
+            'default': 'Tetris'
+        },
+
+        initialize: function(options) {
+            var that = this;
+
+            this.on('route', function(router, route, params) {
+                if (that.titles) {
+                    document.title = (
+                        that.titles[router] ? that.titles[router] + ' - ' : ''
+                    ) + (
+                        that.titles['default'] ? that.titles['default'] : ''
+                    );
+                }
+            });
         }
     });
 
@@ -46,6 +67,11 @@ define([
             pushState: true
         });
 
+        attachGlobalClickListener();
+        attachGlobalScrollListener();
+    };
+
+    var attachGlobalClickListener = function() {
         // on every click, check if it's an href that can be handled by the router
         $(document).on('click', 'a', function(evt) {
             var a = $(this);
@@ -64,6 +90,48 @@ define([
             ) {
                 evt.preventDefault();
                 Backbone.history.navigate(href, {trigger: true});
+            }
+        });
+    };
+
+    var attachGlobalScrollListener = function() {
+        $(window).scroll(function() {
+            var smallLogoHeight = $('.small-logo').height();
+            var bigLogoHeight = $('.big-logo').height();
+            var navbarHeight = $('.navbar').height();
+            console.log(smallLogoHeight, bigLogoHeight, navbarHeight);
+
+            var smallLogoEndPos = 0;
+            var smallSpeed = (smallLogoHeight / bigLogoHeight);
+
+            var ySmall = ($(window).scrollTop() * smallSpeed);
+
+            var smallPadding = navbarHeight - ySmall;
+            if (smallPadding > navbarHeight) {
+                smallPadding = navbarHeight;
+            }
+            if (smallPadding < smallLogoEndPos) {
+                smallPadding = smallLogoEndPos;
+            }
+            if (smallPadding < 0) {
+                smallPadding = 0;
+            }
+
+            $('.small-logo-container').css({'padding-top': smallPadding});
+
+            var navOpacity = ySmall / smallLogoHeight;
+            if (navOpacity > 1) {
+                navOpacity = 1;
+            }
+            if (navOpacity < 0) {
+                navOpacity = 0;
+            }
+
+            var shadowOpacity = navOpacity * 0.4;
+            if (ySmall > 1) {
+                $('.navbar').css({'box-shadow': '0 2px 3px rgba(0,0,0,' + shadowOpacity + ')'});
+            } else {
+                $('.navbar').css({'box-shadow': 'none'});
             }
         });
     };
