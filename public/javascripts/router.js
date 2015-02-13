@@ -10,7 +10,6 @@ define([
     var AppRouter = Backbone.Router.extend({
         routes: {
             // Define some URL routes
-            'about': 'showAbout',
             'projects': 'showProjectsList',
             'resume': 'showResume',
             // Default
@@ -18,7 +17,6 @@ define([
         },
 
         titles: {
-            'showAbout': 'About',
             'showProjectsList': 'Projects',
             'showResume': 'Resume',
             'default': 'Tetris'
@@ -41,11 +39,6 @@ define([
 
     var initialize = function() {
         var router = new AppRouter();
-
-        router.on('route:showAbout', function() {
-            var aboutView = new AboutView();
-            aboutView.render();
-        });
 
         router.on('route:showProjectsList', function() {
             var projectsListView = new ProjectsListView();
