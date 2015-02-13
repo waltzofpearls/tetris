@@ -3,10 +3,9 @@ define([
     'underscore',
     'backbone',
     'views/HomeView',
-    'views/AboutView',
     'views/projects/ProjectsListView',
     'views/ResumeView'
-], function($, _, Backbone, HomeView, AboutView, ProjectsListView, ResumeView) {
+], function($, _, Backbone, HomeView, ProjectsListView, ResumeView) {
     var AppRouter = Backbone.Router.extend({
         routes: {
             // Define some URL routes
