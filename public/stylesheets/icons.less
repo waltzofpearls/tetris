@@ -1,0 +1,46 @@
+//
+// http://draeton.github.io/stitches/
+//
+.stitches-icon(@x: 0, @y: 0, @width: 0, @height: 0) {
+    background-position: @x @y;
+    width: @width;
+    height: @height;
+}
+
+.icon {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+
+    &.icon-facebook-48 {
+        .stitches-icon(0, 0, 48px, 48px);
+    }
+
+    &.icon-github-48 {
+        .stitches-icon(-48px, 0, 48px, 48px);
+    }
+
+    &.icon-google-plus-48 {
+        .stitches-icon(0, -48px, 48px, 48px);
+    }
+
+    &.icon-instagram-48 {
+        .stitches-icon(-48px, -48px, 48px, 48px);
+    }
+
+    &.icon-linkedin-48 {
+        .stitches-icon(-96px, 0, 48px, 48px);
+    }
+
+    &.icon-logo-48 {
+        .stitches-icon(-96px, -48px, 48px, 48px);
+    }
+
+    &.icon-tumblr-48 {
+        .stitches-icon(0, -96px, 48px, 48px);
+    }
+
+    &.icon-twitter-48 {
+        .stitches-icon(-48px, -96px, 48px, 48px);
+    }
+}
