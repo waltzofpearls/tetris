@@ -83,3 +83,24 @@
     }
 }
 
+.logo {
+    background-image: url(/images/logos.png);
+    background-repeat: no-repeat;
+    display: block;
+
+    &.logo-120x120 {
+        .stitches-icon(0, 0, 120px, 120px);
+    }
+
+    &.logo-150x150 {
+        .stitches-icon(-120px, 0, 150px, 150px);
+    }
+
+    &.logo-50x50 {
+        .stitches-icon(-270px, 0, 50px, 50px);
+    }
+
+    &.logo-80x80 {
+        .stitches-icon(-270px, -50px, 80px, 80px);
+    }
+}
