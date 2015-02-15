@@ -10,19 +10,21 @@
 
     <ul>
         <% _.each(projects, function(project) { %>
-            <li>
-                <h4>
-                    <a href="<%= project.get('url') %>" rel="external"><%= project.get('name') %></a>
-                </h4>
-                <p>
-                    <span class="label label-default">Stars: <%= project.get('stars') %></span>
-                    <span class="label label-default">Forks: <%= project.get('forks') %></span>
-                    <span class="label label-primary"><%= project.get('language') %></span>
-                    <img src="<%= project.get('badge') %>">
-                </p>
-                <p>
-                    <%= project.get('description') %>
-                </p>
+            <li class="col-md-4">
+                <div class="block">
+                    <h4>
+                        <a href="<%= project.get('url') %>" rel="external"><%= project.get('name') %></a>
+                    </h4>
+                    <p>
+                        <span class="label label-default">Stars: <%= project.get('stars') %></span>
+                        <span class="label label-default">Forks: <%= project.get('forks') %></span>
+                        <span class="label label-primary"><%= project.get('language') %></span>
+                        <img src="<%= project.get('badge') %>">
+                    </p>
+                    <p>
+                        <%= project.get('description') %>
+                    </p>
+                </div>
             </li>
         <% }); %>
     </ul>

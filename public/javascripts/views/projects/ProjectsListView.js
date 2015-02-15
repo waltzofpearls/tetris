@@ -3,14 +3,14 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'utils/Partial',
     'collections/projects/ProjectsListCollection',
     'text!templates/projects/projectsListTemplate.html'
-], function($, _, Backbone, ProjectsListCollection, projectsListTemplate) {
+], function($, _, Backbone, Partial, ProjectsListCollection, projectsListTemplate) {
     var ProjectsListView = Backbone.View.extend({
         el: $('.tetris-main-container'),
 
         initialize: function() {
-            this.spinner = $('<img>').attr('src', '/images/spinner1.gif');
         },
 
         render: function() {
@@ -26,8 +26,7 @@ define([
                 }
             });
 
-            this.$el.html(this.spinner);
-            this.$el.html(this.$el.html() + ' Loading...');
+            this.$el.html(_.template(Partial.template.loader)(Partial.preload));
         }
     });
 
