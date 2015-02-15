@@ -9,23 +9,26 @@ h1, h2, h3, h4 {
     }
 }
 
+@small-logo-size: 48px;
+@fixed-top-height: (@small-logo-size + 2);
+
 .small-logo-container {
-    padding-top: 50px;
+    padding-top: @fixed-top-height;
     width: 0;
-    height: 50px;
+    height: @fixed-top-height;
     overflow: hidden;
     transition: width .5s;
     -webkit-transition: width .5s;
 
     .small-logo {
-        padding-bottom: 2px;
         display: block;
+        margin: 1px;
     }
 }
 
 .big-logo-row {
     .big-logo-container {
-        padding-top: 50px;
+        padding-top: @fixed-top-height;
 
         a {
             display: block;
@@ -56,6 +59,15 @@ h1, h2, h3, h4 {
         @media (min-width:992px) { font-size: 4em; }
         // large desktop
         @media (min-width:1200px) { font-size: 5em; }
+    }
+}
+
+.tetris-social-network {
+    float: right;
+
+    a {
+        margin: 7px 2px;
+        float: left;
     }
 }
 
@@ -91,7 +103,12 @@ h1, h2, h3, h4 {
 }
 
 // smartphone
-@media (max-width:767px) {}
+@media (max-width:767px) {
+    .tetris-social-network {
+        float: left;
+        margin-bottom: 10px;
+    }
+}
 
 // tablet
 @media (min-width:768px) {}
