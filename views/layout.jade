@@ -18,7 +18,7 @@ html
               span.icon-bar
               span.icon-bar
             div.small-logo-container
-              a.small-logo.icon.icon-logo-48(href='/')
+              a.small-logo.icon-48.icon-logo-48(href='/')
           div.collapse.navbar-collapse.tetris-navbar-collapse
             ul.nav.navbar-nav
               li: a(href='/') 0: 'Home'
@@ -31,13 +31,16 @@ html
               a.icon-36.icon-google-plus-36(href='https://google.com/+RollieMa', rel='external')
               a.icon-36.icon-twitter-36(href='https://twitter.com/Topbass', rel='external')
             div.clearfix
-      div.container.big-logo-row
-        div.row
-          div.col-xs-12.big-logo-container
-            h1.big-logo
-              a(href='/')
-                img(src='/images/logo-big.png')
-                span {'Rollie Ma': 'Developer'}
+      div.big-logo-row.container
+        div.big-logo-container.row
+          div.big-logo.col-xs-4.col-sm-4.col-md-3
+            a(href='/')
+              span.logo.logo-150x150
+              span.logo.logo-120x120
+              span.logo.logo-80x80
+              span.logo.logo-50x50
+          div.big-text.col-xs-8.col-sm-8.col-md-9
+            h1: {'Rollie Ma': 'Developer'}
     div.container
       block content
     footer
