@@ -27,49 +27,56 @@ h1, h2, h3, h4 {
 }
 
 .big-logo-row {
-    .big-logo-container {
-        padding-top: @fixed-top-height;
-    }
-    h1 {
-        font-size: 2em;
-        margin: 0;
-        padding: 15px 0;
+    padding-top: @fixed-top-height;
 
-        @media (max-width:767px) {
-            font-size: 2em;
-        }
-        @media (min-width:768px) {
-            font-size: 3em;
-        }
-        @media (min-width:992px) {
-            font-size: 4em;
-        }
-        @media (min-width:1200px) {
-            font-size: 5em;
-        }
+    .big-logo-container {
+        padding: 15px;
     }
+
     .logo {
         display: none;
     }
 
+    h1 {
+        margin: 0;
+        text-align: right;
+
+        &.long { display: block; }
+        &.short { display: none; }
+    }
+
     // smartphone
     @media (max-width: @screen-xs-max) {
-        h1 { font-size: 2em; }
+        h1 {
+            font-size: 2em;
+            line-height: 50px;
+            &.long { display: none; }
+            &.short { display: block; }
+        }
         .logo-50x50 { display: block; }
     }
     // tablet
     @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
-        h1 { font-size: 3em; }
+        h1 {
+            font-size: 3em;
+            line-height: 80px;
+        }
         .logo-80x80 { display: block; }
     }
     // desktop
     @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
-        h1 { font-size: 4em; }
+        h1 {
+            font-size: 4em;
+            line-height: 120px;
+        }
         .logo-120x120 { display: block; }
     }
     // large desktop
     @media (min-width: @screen-lg-min) {
-        h1 { font-size: 5em; }
+        h1 {
+            font-size: 5em;
+            line-height: 150px;
+        }
         .logo-150x150 { display: block; }
     }
 }

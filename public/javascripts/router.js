@@ -89,7 +89,7 @@ define([
     var attachGlobalScrollListener = function() {
         $(window).scroll(function() {
             var smallLogoHeight = $('.small-logo').height();
-            var bigLogoHeight = $('.big-logo').height();
+            var bigLogoHeight = $('.big-logo-container').height();
             var navbarHeight = $('.navbar').height();
 
             var smallLogoEndPos = 0;
