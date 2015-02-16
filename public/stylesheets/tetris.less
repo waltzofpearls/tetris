@@ -24,10 +24,16 @@ h1, h2, h3, h4 {
         display: block;
         margin: 1px;
     }
+
+    @media (max-width: @screen-xs-max) {
+        width: auto !important;
+    }
 }
 
 .big-logo-row {
     padding-top: @fixed-top-height;
+    transition: padding-top .5s;
+    -webkit-transition: padding-top .5s;
 
     .big-logo-container {
         padding: 15px;
