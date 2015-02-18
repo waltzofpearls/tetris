@@ -3,20 +3,22 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    // Using the Require.js text! plugin, we are loaded raw text
-    // which will be used as our views primary template
     'text!templates/homeTemplate.html'
-], function($, _, Backbone, homeTemplate){
+], function($, _, Backbone, homeTemplate) {
     var HomeView = Backbone.View.extend({
         el: $('.tetris-main-container'),
 
         render: function() {
-            // Using Underscore we can compile our template with data
-            var data = {};
-            var compiledTemplate = _.template(homeTemplate, data);
+            this.$el.html(_.template(homeTemplate)({
+                avatarRandNum: this.getRandomInt(1, 7)
+            }));
+        },
 
-            // Append our compiled template to this Views "el"
-            this.$el.html(compiledTemplate);
+        // min is included
+        // max is excluded
+        // so (1, 6) will only output a number between 1 and 5
+        getRandomInt: function(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
         }
     });
 

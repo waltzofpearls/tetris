@@ -102,6 +102,36 @@ h1, h2, h3, h4 {
     }
 }
 
+.tetris-about {
+    margin-top: 15px;
+
+    .avatar-img {
+        .avatar {
+            // smartphone
+            @media (max-width: @screen-xs-max) {
+                margin: 0 auto 25px auto;
+            }
+        }
+    }
+
+    .about-txt {
+        .pre-ish {
+            font-family: consolas, monospace, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 1.3em;
+            border: 1px solid #c0c0c0;
+            background: #f5f5f5;
+            padding: 10px;
+            -moz-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            padding-left: 30px;
+        }
+    }
+}
+
 .tetris-projects-list {
     >h4 {
         margin-left: 15px;
