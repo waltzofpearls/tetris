@@ -54,14 +54,15 @@
 # MIN_UPTIME="5000"
 # SPIN_SLEEP_TIME="2000"
 
-NAME=""
-NODE_BIN_DIR=""
-NODE_PATH=""
-APPLICATION_PATH=""
-PIDFILE=""
-LOGFILE=""
-MIN_UPTIME=""
-SPIN_SLEEP_TIME=""
+NAME="Tetris App"
+NVM_USE="0.11.14"
+NODE_BIN_DIR="$HOME/.nvm/v$NVM_USE/bin"
+NODE_PATH="$HOME/.nvm/v$NVM_USE/lib/node_modules"
+APPLICATION_PATH="$HOME/tetris/bin/www"
+PIDFILE="$HOME/tetris/bin/app.pid"
+LOGFILE="$HOME/tetris/log/app.log"
+MIN_UPTIME="1000"
+SPIN_SLEEP_TIME="1000"
 
 # Add node to the path for situations in which the environment is passed.
 PATH=$NODE_BIN_DIR:$PATH
@@ -69,6 +70,8 @@ PATH=$NODE_BIN_DIR:$PATH
 # application process forked by Forever. It will not see any of the other
 # variables defined in this script.
 export NODE_PATH=$NODE_PATH
+
+nvm use "$NVM_USE"
 
 start() {
     echo "Starting $NAME"
