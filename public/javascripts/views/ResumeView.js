@@ -4,23 +4,29 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    // Using the Require.js text! plugin, we are loaded raw text
-    // which will be used as our views primary template
+    'utils/Partial',
+    'collections/ResumeCollection',
     'text!templates/resumeTemplate.html'
-], function($, _, Backbone, resumeTemplate) {
+], function($, _, Backbone, Partial, ResumeCollection, resumeTemplate) {
     var ResumeView = Backbone.View.extend({
         el: $('.tetris-main-container'),
 
         render: function() {
-            // Using Underscore we can compile our template with data
-            var data = {};
-            var compiledTemplate = _.template(resumeTemplate, data);
+            var that = this;
 
-            // Append our compiled template to this Views "el"
-            this.$el.html(compiledTemplate);
+            this.collection = new ResumeCollection();
+            this.collection.fetch({
+                success: function(collection, response) {
+                    that.$el.html(_.template(resumeTemplate)({
+                        _: _,
+                        projects: collection.models
+                    }));
+                }
+            });
+
+            this.$el.html(_.template(Partial.template.loader)(Partial.preload));
         }
     });
 
-    // Our module now returns our view
     return ResumeView;
 });
