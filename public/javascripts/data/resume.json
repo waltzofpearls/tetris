@@ -1,0 +1,159 @@
+{
+  "technology": [
+    "PHP",
+    "MySQL",
+    "PostgreSQL",
+    "MS SQL Server",
+    "Ubuntu",
+    "RedHat",
+    "Mac OS",
+    "FreeBSD",
+    "Nginx",
+    "Apache",
+    "Zend Framework",
+    "Composer",
+    "PHPUnit",
+    "PECL",
+    "HHVM",
+    "Hack",
+    "Python",
+    "Flask",
+    "Django",
+    "Node.js",
+    "Npm",
+    "Express",
+    "MongoDB",
+    "Socket.IO",
+    "Redis",
+    "Memcached",
+    "Bash",
+    "PowerShell",
+    "Object-Oriented Programming",
+    "Design Patterns",
+    "Systems Development Life Cycle",
+    "Agile",
+    "Test-Driven Development",
+    "Continuous Integration",
+    "jQuery",
+    "Bootstrap",
+    "RequireJS",
+    "Backbone.js",
+    "AngularJS",
+    "Jasmine",
+    "D3.js",
+    "Data visualization",
+    "Git",
+    "SVN",
+    "CVS",
+    "REST",
+    "SOAP",
+    "XML-RPC",
+    "XML",
+    "XSLT",
+    "XSL-FO"
+  ],
+  "strengths": [
+    "Over 8 years of experience in PHP coding and complex app design on various operating systems, such as Ubuntu, RedHat, FreeBSD and Mac OS.",
+    "Excellent understanding of object-oriented programming and design pattern concepts.",
+    "Solid knowledge of MySQL database design, optimization and query tuning.",
+    "In-depth knowledge of JavaScript and ECMA-262 specification.",
+    "Strong foundation of writing maintainable, modular and expressive JavaScript code.",
+    "Good understanding of HTML5, CSS3, XML, XSLT and XSL-FO standards.",
+    "Solid knowledge of credit card fraud evaluation and integration with fraud prevention systems.",
+    "In-depth understanding of payment processing, PCI compliant environment and integration with different payment processors such as PayPal.",
+    "Good understanding of electronic data interchange (EDI) and integration with different financial accounting systems, such as QuickBooks, Yardi and Microsoft Dynamics Great Plains, etc.",
+    "Strong problem solving skills combining with logical and creative solutions to implement effective approaches.",
+    "Quick learner who is constantly hunting and adopting emerging technologies."
+  ],
+  "experience": [
+    {
+      "company": {
+        "name": "Beanworks Solutions Inc.",
+        "website": "https://beanworks.com",
+        "description": ""
+      },
+      "title": "Senior Software Engineer",
+      "location": "Vancouver, BC",
+      "period": ["Jan 2015", "Present"],
+      "description": ""
+    },
+    {
+      "company": {
+        "name": "Schenker of Canada Ltd.",
+        "website": "http://dbschenker.com",
+        "description": "DB Schenker stands for the transportation and logistics activities of Deutsche Bahn. The Logistics sector of DB is the world’s second largest transportation and logistics services provider based on revenues and performance."
+      },
+      "title": "Senior Web Developer",
+      "location": "Vancouver, BC",
+      "period": ["Dec 2012", "Jan 2015"],
+      "description": "At DB Schenker, my daily work involves:"
+    },
+    {
+      "company": {
+        "name": "InComm Canada Prepaid Inc.",
+        "website": "http://incomm-canada.com",
+        "description": "InComm is the industry leading marketer, distributor and technology innovator of stored-value gift and prepaid products."
+      },
+      "title": "Software Engineer",
+      "location": "Richmond, BC",
+      "period": ["Jan 2012", "Dec 2012"],
+      "description": "As a member of InComm’s DDA (Digital Delivery Applications) team, I’m responsible for:"
+    },
+    {
+      "company": {
+        "name": "Bean Services Inc.",
+        "website": "http://beanservices.com",
+        "description": "Bean offered web based SaaS solutions for AP automation and paperless document process."
+      },
+      "title": "Senior Lead Developer",
+      "location": "Burnaby, BC",
+      "period": ["Dec 2009", "Jan 2012"],
+      "description": "As a senior lead programmer at Bean, my principal responsibilities were:"
+    },
+    {
+      "company": {
+        "name": "Homes and Living Magazine",
+        "website": "http://hlmagazine.com",
+        "description": ""
+      },
+      "title": "Web Developer",
+      "location": "Parksville, BC",
+      "period": ["Dec 2008", "Sept 2009"],
+      "description": "As a web developer at H&L Magazine, I was pleased to use my knowledge and skills to help customers promoting their businesses. I also enjoyed creating HTML templates from PSD mock-ups, driving the templates with my PHP code and presenting the beautiful designs. Websites I built at H&L were all based on my own MVC development framework, which consists of many practical components such as database abstraction layer, template and file cache engine, RSS parsing library, XML read and write functions, image manipulation library, etc. The second large piece of my responsibilities was building and maintaining Home & Living Magazine's website. In addition to the PHP coding works, I also experienced working with a few previously created Ruby on Rails websites from customers."
+    },
+    {
+      "company": {
+        "name": "K12 Education Technology Ltd.",
+        "website": "http://www.k12.com.cn",
+        "description": "K12 is a software firm provides a series of solutions like paperless education, distributed knowledge base system and educational data analysis, synchronization and integration services."
+      },
+      "title": "Senior Software Developer",
+      "location": "Beijing, China",
+      "period": ["Oct 2006", "Oct 2007"],
+      "description": "My major duties at K12 were developing new versions of K12 CMS and K12 Platform, which were web apps and centralized control panels. K12 Platform hosts, connects and manages the data from a variety of different K12 web and desktop apps. The main platform and other apps communicate and synchronize data to each other with XML-RPC web service. My work at K12 also included fulfilling special customers’ requirements, maintaining servers and integrating single sign-on (SSO) gateway between external apps and main platform."
+    }
+  ],
+  "education": [
+    {
+      "school": "Beijing Information Science and Technology University",
+      "period": ["2002", "2006"],
+      "degree": "Bachelor of Economics",
+      "field": "Economics",
+      "description": "BISTU is highly ranked among the universities in China for information management, computing science, software engineering and communications engineering.",
+      "courses": [
+        "Introduction to C Programming",
+        "Introduction to Database Management",
+        "Computer Networks",
+        "Management Information System",
+        "International Trade",
+        "Fundamentals of Accounting"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "year": "2004",
+      "award": "2nd place in University Web Page Design Competition"
+    }
+  ]
+}
