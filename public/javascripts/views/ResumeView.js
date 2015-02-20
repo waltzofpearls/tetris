@@ -1,3 +1,4 @@
+"use strict";
 
 define([
     'jquery',
@@ -6,7 +7,7 @@ define([
     // Using the Require.js text! plugin, we are loaded raw text
     // which will be used as our views primary template
     'text!templates/resumeTemplate.html'
-], function($, _, Backbone, resumeTemplate){
+], function($, _, Backbone, resumeTemplate) {
     var ResumeView = Backbone.View.extend({
         el: $('.tetris-main-container'),
 

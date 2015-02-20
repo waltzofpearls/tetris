@@ -1,3 +1,5 @@
+"use strict";
+
 require.config({
     shim: {
         'bootstrap': {'deps': ['jquery']}
