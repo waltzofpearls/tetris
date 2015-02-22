@@ -4,10 +4,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'marked',
     'utils/Partial',
     'collections/ResumeCollection',
     'text!templates/resumeTemplate.html'
-], function($, _, Backbone, Partial, ResumeCollection, resumeTemplate) {
+], function($, _, Backbone, Marked, Partial, ResumeCollection, resumeTemplate) {
     var ResumeView = Backbone.View.extend({
         el: $('.tetris-main-container'),
 
@@ -19,7 +20,8 @@ define([
                 success: function(collection, response) {
                     that.$el.html(_.template(resumeTemplate)({
                         _: _,
-                        projects: collection.models
+                        Marked: Marked,
+                        resume: collection.models[0]
                     }));
                 }
             });

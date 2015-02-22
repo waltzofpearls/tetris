@@ -1,1 +1,60 @@
-resume
+
+<section class="tetris-resume-section technology">
+    <h2>Technology</h2>
+
+    <ul>
+        <% _.each(resume.get('technology'), function(tech) { %>
+            <li>
+                <span class="label label-<%= tech.label %>"><%= tech.text %></span>
+            </li>
+        <% }); %>
+    </ul>
+</section>
+
+<section class="tetris-resume-section strengths">
+    <h2>Strengths</h2>
+
+    <ol>
+        <% _.each(resume.get('strengths'), function(strn) { %>
+            <li>
+                <%= strn %>
+            </li>
+        <% }); %>
+    </ol>
+</section>
+
+<section class="tetris-resume-section experience">
+    <h2>Experience</h2>
+
+    <ul>
+        <% _.each(resume.get('experience'), function(expr) { %>
+            <li>
+                <%= expr %>
+            </li>
+        <% }); %>
+    </ul>
+</section>
+
+<section class="tetris-resume-section education">
+    <h2>Education</h2>
+
+    <ul>
+        <% _.each(resume.get('education'), function(educ) { %>
+            <li>
+                <%= educ %>
+            </li>
+        <% }); %>
+    </ul>
+</section>
+
+<section class="tetris-resume-section awards">
+    <h2>Awards</h2>
+
+    <ul>
+        <% _.each(resume.get('awards'), function(awrd) { %>
+            <li>
+                <%= awrd %>
+            </li>
+        <% }); %>
+    </ul>
+</section>
