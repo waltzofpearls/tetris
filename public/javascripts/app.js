@@ -7,11 +7,16 @@ define([
     'router',
     'bootstrap'
 ], function($, _, Backbone, Router) {
+    var app = {};
+    var tube = _.extend({}, Backbone.Events);
+
     var initialize = function() {
-        Router.initialize();
+        Router.initialize({app: app, tube: tube});
     };
 
     return {
+        app: app,
+        tube: tube,
         initialize: initialize
     };
 });
