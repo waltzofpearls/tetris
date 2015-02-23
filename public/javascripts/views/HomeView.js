@@ -7,12 +7,32 @@ define([
     'text!templates/homeTemplate.html'
 ], function($, _, Backbone, homeTemplate) {
     var HomeView = Backbone.View.extend({
-        el: $('.tetris-main-container'),
+        tagName: 'div',
+        className: 'tetris-page-home',
+
+        xhr: null,
+
+        initialize: function(options) {
+            this.app = options.app;
+            this.tube = options.tube;
+        },
 
         render: function() {
             this.$el.html(_.template(homeTemplate)({
                 avatarRandNum: this.getRandomInt(1, 7)
             }));
+
+            return this;
+        },
+
+        close: function() {
+            if (this.xhr !== null) {
+                this.xhr.abort();
+            }
+            _.each(this.subViews, function(view) {
+                view.remove();
+            });
+            this.remove();
         },
 
         // min is included
