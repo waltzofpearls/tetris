@@ -162,7 +162,7 @@ h1, h2, h3, h4 {
     &.technology {
         ul {
             list-style: none;
-            margin: 0;
+            padding-left: 20px;
 
             li {
                 display: inline-block;
@@ -178,15 +178,61 @@ h1, h2, h3, h4 {
     }
 
     &.experience {
+        ul {
+            list-style: none;
+            padding-left: 20px;
 
+            >li {
+                &:not(:last-child) {
+                    margin-bottom: 20px;
+                }
+
+                >h4 {
+                    margin-bottom: 0;
+                }
+
+                >h5 {
+                    margin-top: 5px;
+                    margin-bottom: 0;
+                }
+
+                .well {
+                    margin-top: 15px;
+                    margin-bottom: 10px;
+                }
+
+                .job-description {
+                    ol {
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
     }
 
     &.education {
+        ul {
+            list-style: none;
+            padding-left: 20px;
 
+            li {
+                >h4 {
+                    margin-bottom: 0;
+                }
+
+                >h5 {
+                    margin-top: 5px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
     }
 
     &.awards {
-
+        ul {
+            list-style: none;
+            padding-left: 20px;
+        }
     }
 }
 
