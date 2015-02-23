@@ -35,27 +35,41 @@ define([
                     );
                 }
             });
+        },
+
+        loadView: function(view) {
+            if (this.view) {
+                if (this.view.close) {
+                    this.view.close();
+                } else
+                    this.view.remove();
+            }
+            this.view = view;
+
+            return this.view;
         }
     });
 
-    var initialize = function() {
+    var initialize = function(options) {
         var router = new AppRouter();
 
-        router.on('route:showProjectsList', function() {
-            var projectsListView = new ProjectsListView();
-            projectsListView.render();
-        });
-
-        router.on('route:showResume', function() {
-            var resumeView = new ResumeView();
-            resumeView.render();
-        });
-
-        router.on('route:defaultAction', function(actions) {
-            // no matching route, fall back to HomeView
-            var homeView = new HomeView();
-            homeView.render();
-        });
+        router
+            .on('route:showProjectsList', function() {
+                $('.tetris-main-container').append(
+                    this.loadView(new ProjectsListView(options)).render().el
+                );
+            })
+            .on('route:showResume', function() {
+                $('.tetris-main-container').append(
+                    this.loadView(new ResumeView(options)).render().el
+                );
+            })
+            .on('route:defaultAction', function(actions) {
+                // no matching route, fall back to HomeView
+                $('.tetris-main-container').append(
+                    this.loadView(new HomeView(options)).render().el
+                );
+            });
 
         Backbone.history.start({
             pushState: true
@@ -139,14 +153,15 @@ define([
             originalPadding = 0;
         }
 
-        $('.navbar .collapse').on('\
-            shown.bs.collapse\
-            hidden.bs.collapse\
-        ', function() {
-            $('.big-logo-row').css({
-                'padding-top': originalPadding + $(this).height() + 'px'
+        $('.navbar .collapse')
+            .on('shown.bs.collapse hidden.bs.collapse', function() {
+                $('.big-logo-row').css({
+                    'padding-top': originalPadding + $(this).height() + 'px'
+                });
+            })
+            .on('click', 'a', function(evt) {
+                $(evt.delegateTarget).collapse('toggle');
             });
-        });
     };
 
     return {
