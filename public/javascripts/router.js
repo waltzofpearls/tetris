@@ -160,7 +160,10 @@ define([
                 });
             })
             .on('click', 'a', function(evt) {
-                $(evt.delegateTarget).collapse('toggle');
+                var collapse = $(evt.delegateTarget);
+                if (collapse.is(".collapse.in")) {
+                    collapse.collapse('hide');
+                }
             });
     };
 
