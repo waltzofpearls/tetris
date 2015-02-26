@@ -20,7 +20,7 @@ define([
         titles: {
             'showProjectsList': 'Projects',
             'showResume': 'Resume',
-            'default': 'Tetris'
+            'default': 'Rollie Ma - Polyglot Developer from Vancouver, BC'
         },
 
         initialize: function(options) {
