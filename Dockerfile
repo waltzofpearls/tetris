@@ -2,15 +2,22 @@ FROM ubuntu:14.04
 
 MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 
-RUN apt-get install -y nodejs
-
 COPY . /src
 
-RUN cd /src; npm install; npm run build
+RUN \
+    apt-get update && \
+    apt-get install -y build-essential && \
+    apt-get install -y nodejs npm && \
+    ln -s /usr/bin/nodejs /usr/bin/node
+RUN \
+    cd /src; npm install && \
+    npm install -g grunt-cli && \
+    npm run build
 
-ENV DEBUG=tetris
-ENV NODE_ENV=production
+ENV PORT 3000
+ENV DEBUG tetris
+ENV NODE_ENV production
 
-EXPOSE  3000
+EXPOSE 3000
 
-CMD ["node", "/src/index.js"]
+CMD ["node", "/src/bin/www"]
