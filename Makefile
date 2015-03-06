@@ -1,3 +1,5 @@
+.PHONY: install build run setup start test clean
+
 install:
 	npm install
 
@@ -5,16 +7,16 @@ build:
 	docker build -t waltzofpearls/tetris .
 
 run:
-	npm run build && npm run production
+	docker run -p 49001:3000 -d waltzofpearls/tetris
 
-run-container:
-	docker run -p 3001:3000 -d waltzofpearls/tetris
+setup:
+	nvm use 0.11
+
+start:
+	npm run build && npm run development
 
 test:
-	curl localhost:3001
+	npm test
 
 clean:
 	rm -rf node_modules
-
-
-.PHONY: install build run test clean
