@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 
 MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 
-COPY . /src
+COPY . /srv/www/tetris
 
 RUN \
     apt-get update && \
@@ -21,4 +21,4 @@ ENV NODE_ENV production
 
 EXPOSE 3000
 
-CMD ["/usr/bin/node", "/src/bin/www"]
+CMD ["/usr/bin/node", "/srv/www/tetris/bin/www"]
