@@ -6,6 +6,7 @@ COPY . /src
 
 RUN \
     apt-get update && \
+    apt-get upgrade -y && \
     apt-get install -y build-essential && \
     apt-get install -y nodejs npm && \
     ln -s /usr/bin/nodejs /usr/bin/node
@@ -20,4 +21,4 @@ ENV NODE_ENV production
 
 EXPOSE 3000
 
-CMD ["node", "/src/bin/www"]
+CMD ["/usr/bin/node", "/src/bin/www"]
