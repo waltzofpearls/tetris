@@ -6,7 +6,7 @@ COPY . /srv/www/tetris
 
 RUN \
     apt-get update && \
-    apt-get install -y
+    apt-get install -y \
         nodejs \
         npm \
         && \
