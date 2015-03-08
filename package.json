@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "start": "DEBUG=tetris node ./bin/www",
-    "test": "node_modules/.bin/mocha --reporter spec --bail --check-leaks tests",
+    "test": "mocha --reporter spec --bail --check-leaks tests",
     "build": "grunt build",
     "development": "NODE_ENV=development npm start",
     "testing": "NODE_ENV=testing npm start",
