@@ -1,22 +1,34 @@
-.PHONY: install build run setup start test clean
+.PHONY: build run stop status install test clean
 
-install:
-	npm install
+repo = waltzofpearls/tetris
+name = tetris
 
+# Docker related Makefile targets
 build:
-	docker build -t waltzofpearls/tetris .
+	docker build -t $(repo) .
 
 run:
-	docker run -p 49001:3000 -d waltzofpearls/tetris
+	docker run -p 49001:3000 -d --name $(name) $(repo)
 
-setup:
-	nvm use 0.11
+stop:
+	docker ps -a | grep $(name) > /dev/null \
+	&& docker stop $(name) && docker rm $(name) \
+	|| echo "\nDocker container [$(name)] does not exist."
 
-start:
-	npm run build && npm run development
+status:
+	docker ps -a -f name=$(name)
+
+# Node and npm related Makefile targets
+purge:
+	docker images | grep $(repo) > /dev/null \
+	&& docker rmi $(repo) \
+	|| echo "\nDocker image [$(repo)] does not exist."
+
+install:
+	nvm use 0.11 && npm install
 
 test:
-	npm test
+	nvm use 0.11 && npm test
 
 clean:
 	rm -rf node_modules
