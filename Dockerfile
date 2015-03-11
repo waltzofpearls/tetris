@@ -2,9 +2,9 @@ FROM waltzofpearls/nodejs
 
 MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 
-COPY . /srv/www/tetris
-
 WORKDIR /srv/www/tetris
+
+COPY . .
 
 RUN \
     npm install && \
@@ -15,4 +15,4 @@ ENV DEBUG tetris
 
 EXPOSE 3000
 
-CMD ["/usr/bin/node", "./bin/www"]
+CMD ["/usr/bin/node", "bin/www"]
