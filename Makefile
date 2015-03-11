@@ -1,9 +1,8 @@
-.PHONY: build run stop status install test clean
-
 repo = waltzofpearls/tetris
 name = tetris
 
 # Docker related Makefile targets
+.PHONY: build run run-development run-testing stop status purge
 build:
 	docker build -t $(repo) .
 
@@ -24,12 +23,21 @@ stop:
 status:
 	docker ps -a -f name=$(name)
 
-# Node and npm related Makefile targets
 purge:
 	docker images | grep $(repo) > /dev/null \
 	&& docker rmi $(repo) \
 	|| echo "\nDocker image [$(repo)] does not exist."
 
+# Docker hub related Makefile targets
+.PHONY: push pull
+push:
+	docker push $(repo)
+
+pull:
+	docker pull $(repo)
+
+# Node and npm related Makefile targets
+.PHONY: install test clean
 install:
 	nvm use 0.11 && npm install
 
