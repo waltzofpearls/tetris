@@ -8,7 +8,13 @@ build:
 	docker build -t $(repo) .
 
 run:
-	docker run -p 49001:3000 -d --name $(name) $(repo)
+	docker run -p 49001:3000 -d -e NODE_ENV=production --name $(name) $(repo)
+
+run-development:
+	docker run -p 49001:3000 -d -e NODE_ENV=development --name $(name) $(repo)
+
+run-testing:
+	docker run -p 49001:3000 -d -e NODE_ENV=testing --name $(name) $(repo)
 
 stop:
 	docker ps -a | grep $(name) > /dev/null \
