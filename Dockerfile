@@ -5,6 +5,7 @@ MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 WORKDIR /srv/www/tetris
 
 COPY . .
+COPY config/default.yml config/.
 
 RUN \
     npm install && \
