@@ -1,3 +1,4 @@
-local.yml
-local-*.yml
+development.yml
+testing.yml
+production.yml
 !.gitignore
