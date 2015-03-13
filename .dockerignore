@@ -1,3 +1,6 @@
 .git/
 .gitignore
-config/*
+config/development.yml
+config/testing.yml
+config/production.yml
+config/.gitignore
