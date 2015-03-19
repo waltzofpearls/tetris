@@ -2,6 +2,8 @@ FROM waltzofpearls/nodejs
 
 MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 
+ADD bin/docker/run /etc/service/tetris/run
+
 WORKDIR /srv/www/tetris
 
 COPY . .
@@ -18,4 +20,4 @@ ENV DEBUG tetris
 
 EXPOSE 3000
 
-CMD ["/usr/bin/node", "bin/www"]
+CMD ["/sbin/my_init"]

@@ -1,0 +1,4 @@
+#!/bin/sh
+cd /srv/www/tetris
+exec 2>&1
+exec chpst -U www-data /usr/bin/node ./bin/www >> /srv/www/tetris/app.log 2>&
