@@ -1,5 +1,5 @@
-repo = waltzofpearls/tetris
-name = tetris
+repo := waltzofpearls/tetris
+name := tetris
 
 # Docker related Makefile targets
 .PHONY: build run run-development run-testing stop status purge
@@ -39,15 +39,18 @@ pull:
 # Node and npm related Makefile targets
 .PHONY: install test clean
 install:
-	nvm use 0.11 && npm install
+	@. ~/.nvm/nvm.sh && \
+	nvm use 0.11 && \
+	npm install
 
 test:
-	nvm use 0.11 && npm test
+	@. ~/.nvm/nvm.sh && \
+	nvm use 0.11 && \
+	npm test
 
 clean:
-	rm -rf node_modules
+	@rm -rf node_modules
 
 # Deployment
 .PHONY: release
-release:
-	#
+release: clean install test build push
