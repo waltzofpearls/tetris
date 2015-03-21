@@ -46,3 +46,8 @@ test:
 
 clean:
 	rm -rf node_modules
+
+# Deployment
+.PHONY: release
+release:
+	#
