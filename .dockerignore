@@ -1,6 +1,7 @@
 .git/
 .gitignore
-bin/docker/
+bin/docker-host/
+bin/docker-image/
 config/development.yml
 config/testing.yml
 config/production.yml
