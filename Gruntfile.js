@@ -24,6 +24,7 @@ module.exports = function(grunt) {
             production: {
                 options: {
                     strictMath: true,
+                    compress: true,
                     cleancss: true
                 },
                 src: 'public/stylesheets/style.less',
