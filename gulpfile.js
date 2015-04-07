@@ -1,3 +1,4 @@
+
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 var LessPluginCleanCSS = require('less-plugin-clean-css');
@@ -10,3 +11,5 @@ gulp.task('less', function () {
         }))
         .pipe(gulp.dest('public/stylesheets'));
 });
+
+gulp.task('default', ['less']);
