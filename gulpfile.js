@@ -12,15 +12,15 @@ gulp.task('less', function() {
         .pipe(gulp.dest('public/stylesheets'));
 });
 
-gulp.task('rjs', function() {
-    return gulp.src('public/javascripts/main.js')
-        .pipe(plugins.rename('main.min.js'))
-        .pipe(plugins.rjs({
-            // name: 'main.min',
-            baseUrl: 'public/javascripts/',
-            mainConfigFile: 'public/javascripts/main.js'
-        }))
-        .pipe(gulp.dest('public/javascripts'));
-});
+gulp.task('rjs', plugins.shell.task([
+    'r.js -o name=main \
+             baseUrl=public/javascripts/ \
+             mainConfigFile=public/javascripts/main.js \
+             out=public/javascripts/main.min.js \
+             preserveLicenseComments=false \
+             findNestedDependencies=true \
+             optimize=uglify2 \
+             generateSourceMaps=true'
+]));
 
 gulp.task('default', ['less', 'rjs']);
