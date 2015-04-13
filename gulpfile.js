@@ -12,6 +12,13 @@ gulp.task('less', function() {
         .pipe(gulp.dest('public/stylesheets'));
 });
 
+gulp.task('js', function() {
+    return gulp.src('public/javascripts/libs/require-2.1.15/require.js')
+        .pipe(plugins.rename('require.min.js'))
+        .pipe(plugins.uglify())
+        .pipe(gulp.dest('public/javascripts/libs/require-2.1.15/'));
+});
+
 gulp.task('rjs', plugins.shell.task([
     'r.js -o name=main \
              baseUrl=public/javascripts/ \
@@ -23,4 +30,4 @@ gulp.task('rjs', plugins.shell.task([
              generateSourceMaps=true'
 ]));
 
-gulp.task('default', ['less', 'rjs']);
+gulp.task('default', ['less', 'js', 'rjs']);

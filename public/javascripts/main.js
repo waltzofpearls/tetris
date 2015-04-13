@@ -10,7 +10,9 @@ require.config({
         jquery: 'libs/jquery-1.11.1',
         marked: 'libs/marked-0.3.3',
         templates: '../templates',
-        underscore: 'libs/underscore-1.7.0'
+        underscore: 'libs/underscore-1.7.0',
+        domReady: 'libs/require-2.1.15/domReady',
+        text: 'libs/require-2.1.15/text'
     }
 });
 
