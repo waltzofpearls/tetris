@@ -19,7 +19,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(require('less-middleware')(path.join(__dirname, 'public')));
+if (app.get('env') === 'development') {
+    app.use(require('less-middleware')(path.join(__dirname, 'public'), {
+        compiler: {
+            compress: true,
+            yuicompress: true,
+            sourceMap: true
+        }
+    }));
+}
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', require('./routes/api'));
