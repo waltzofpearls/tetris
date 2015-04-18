@@ -7,7 +7,7 @@ public/javascripts/*.min.js.map
 public/javascripts/libs/*.min.js
 public/stylesheets/*.css
 public/stylesheets/*.css.map
+node_modules/
 !.gitignore
 .DS_Store
-node_modules
 npm-debug.log
