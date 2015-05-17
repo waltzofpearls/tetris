@@ -119,7 +119,8 @@ gulp.task('docker:pull', plugins.shell.task([
 
 
 //
-// gulp's default task
+// Gulp's default task
+//
 // $ gulp
 //
 gulp.task('build', ['less', 'js', 'rjs'])
