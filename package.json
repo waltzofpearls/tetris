@@ -8,14 +8,14 @@
     "start": "DEBUG=tetris node ./bin/www",
 
     "pretest": "npm install",
-    "test": "mocha --reporter spec --bail --check-leaks tests",
+    "test": "mocha --reporter spec --bail --check-leaks tests/unit-node",
 
     "pregulp": "npm install",
     "gulp": "gulp",
 
-    "dev": "NODE_ENV=development npm start",
-    "test": "NODE_ENV=testing npm start",
-    "prod": "NODE_ENV=production npm start"
+    "development": "NODE_ENV=development npm start",
+    "testing": "NODE_ENV=testing npm start",
+    "production": "NODE_ENV=production npm start"
   },
   "dependencies": {
     "async": "^0.9.0",
