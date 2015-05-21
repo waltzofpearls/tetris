@@ -13,6 +13,9 @@
     "pregulp": "npm install",
     "gulp": "gulp",
 
+    "prekarma": "npm install",
+    "karma": "karma",
+
     "development": "NODE_ENV=development npm start",
     "testing": "NODE_ENV=testing npm start",
     "production": "NODE_ENV=production npm start"
