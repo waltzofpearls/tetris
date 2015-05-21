@@ -78,6 +78,8 @@ define([
         attachGlobalClickListener();
         attachGlobalScrollListener();
         attachGlobalNavMenuToggleListener();
+
+        return router;
     };
 
     var attachGlobalClickListener = function() {

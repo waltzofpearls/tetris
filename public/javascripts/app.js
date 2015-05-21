@@ -11,7 +11,7 @@ define([
     var tube = _.extend({}, Backbone.Events);
 
     var initialize = function() {
-        Router.initialize({app: app, tube: tube});
+        return Router.initialize({app: app, tube: tube});
     };
 
     return {

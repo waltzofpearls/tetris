@@ -6,13 +6,14 @@ module.exports = function(config) {
 
     files: [
       {pattern: 'public/javascripts/**/*.js', included: false},
-      {pattern: 'tests/unit-bjs/**/*_test.js', included: false},
-      'tests/test-main.js'
+      {pattern: 'public/templates/**/*.html', included: false},
+      {pattern: 'tests/unit-bjs/**/*.spec.js', included: false},
+      'tests/unit-bjs/test-main.js'
     ],
 
     exclude: [
-      'public/javascripts/main.js'
-      'public/javascripts/main.min.js'
+      'public/javascripts/main.js',
+      'public/javascripts/main.min.js',
       'public/javascripts/libs/require-2.1.15/require.min.js'
     ],
 
