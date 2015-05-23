@@ -17,8 +17,8 @@ module.exports = function(config) {
       'public/javascripts/libs/require-2.1.15/require.min.js'
     ],
 
-    singleRun: false,
-    autoWatch: true,
+    singleRun: true,
+    autoWatch: false,
 
     frameworks: ['jasmine', 'requirejs'],
 
