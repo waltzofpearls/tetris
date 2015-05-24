@@ -7,10 +7,10 @@ define([
     beforeEach(function() {
       this.router = Router.initialize();
       this.routeSpy = Sinon.spy();
-      // try {
-      //   Backbone.history.start({silent: true, pushState: true});
-      // } catch(e) { }
-      // this.router.navigate('elsewhere');
+      try {
+        Backbone.history.start({silent: true, pushState: true});
+      } catch(e) { }
+      this.router.navigate('elsewhere');
     });
 
     it("fires the index route with a blank hash", function() {
