@@ -1,21 +1,18 @@
 'use strict';
 
-define(['app', 'jquery', 'underscore'], function(App, $, _) {
-  describe('just checking', function() {
-    it('works for app', function() {
-      // var el = $('<div></div>');
-
-      // var app = new App(el);
-      // app.render();
-
-      // expect(el.text()).toEqual('require.js up and running');
-
-      // App.initialize();
+define([
+  'jquery', 'underscore', 'backbone', 'app', 'router', 'sinon', 'jasmine-sinon'
+], function($, _, Backbone, App, Router) {
+  describe('App entrypoint', function() {
+    it('defined all the necessary properties', function() {
+      expect(App.app).toBeDefined();
+      expect(App.tube).toBeDefined();
+      expect(App.initialize).toBeDefined();
     });
 
-    it('works for underscore', function() {
-      // just checking that _ works
-      expect(_.size([1,2,3])).toEqual(3);
+    it('can be properly initialized', function() {
+      var isInstanceOf = (App.initialize() instanceof Backbone.Router);
+      expect(isInstanceOf).toBeTruthy();
     });
   });
 });

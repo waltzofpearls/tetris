@@ -29,6 +29,8 @@ module.exports = function(config) {
       'karma-firefox-launcher',
       'karma-jasmine',
       'karma-requirejs'
-    ]
+    ],
+
+    reporters: ['dots']
   });
 };
