@@ -1,6 +1,8 @@
 'use strict';
 
-define(['router', 'sinon', 'jquery', 'underscore'], function(Router, Sinon, $, _) {
+define([
+  'router', 'sinon', 'jquery', 'underscore', 'jasmine-sinon'
+], function(Router, Sinon, $, _) {
   describe('Router routes', function() {
     beforeEach(function() {
       this.router = Router.initialize();
@@ -15,7 +17,7 @@ define(['router', 'sinon', 'jquery', 'underscore'], function(Router, Sinon, $, _
       this.router.bind('route:defaultAction', this.routeSpy);
       this.router.navigate('', true);
       expect(this.routeSpy).toHaveBeenCalledOnce();
-      // expect(this.routeSpy).toHaveBeenCalledWith();
+      expect(this.routeSpy).toHaveBeenCalledWith();
     });
   });
 });
