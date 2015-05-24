@@ -1,23 +1,41 @@
 'use strict';
 
-define([
-  'router', 'sinon', 'jquery', 'underscore', 'jasmine-sinon'
-], function(Router, Sinon, $, _) {
+define(['router', 'jquery', 'underscore', 'sinon', 'jasmine-sinon'], function(Router, $, _) {
   describe('Router routes', function() {
+    var router, routeSpy;
+
     beforeEach(function() {
-      this.router = Router.initialize();
-      this.routeSpy = Sinon.spy();
+      router = Router.initialize();
+      routeSpy = sinon.spy();
       try {
         Backbone.history.start({silent: true, pushState: true});
       } catch(e) { }
-      this.router.navigate('elsewhere');
+      router.navigate('elsewhere');
     });
 
-    it("fires the index route with a blank hash", function() {
-      this.router.bind('route:defaultAction', this.routeSpy);
-      this.router.navigate('', true);
-      expect(this.routeSpy).toHaveBeenCalledOnce();
-      expect(this.routeSpy).toHaveBeenCalledWith();
+    afterEach(function() {
+      Backbone.history.stop();
+    });
+
+    it('fires the index route with a blank hash', function() {
+      router.on('route:defaultAction', routeSpy);
+      router.navigate('', true);
+      expect(routeSpy).toHaveBeenCalledOnce();
+      expect(routeSpy).toHaveBeenCalledWith();
+    });
+
+    it('fires the projects route', function() {
+      router.bind('route:showProjectsList', routeSpy);
+      router.navigate('projects', true);
+      expect(routeSpy).toHaveBeenCalledOnce();
+      expect(routeSpy).toHaveBeenCalledWith();
+    });
+
+    it('fires the resume route', function() {
+      router.bind('route:showResume', routeSpy);
+      router.navigate('resume', true);
+      expect(routeSpy).toHaveBeenCalledOnce();
+      expect(routeSpy).toHaveBeenCalledWith();
     });
   });
 });
