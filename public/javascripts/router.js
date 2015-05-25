@@ -71,9 +71,9 @@ define([
                 );
             });
 
-        Backbone.history.start({
-            pushState: true
-        });
+        try {
+          Backbone.history.start({pushState: true});
+        } catch(e) { }
 
         attachGlobalClickListener();
         attachGlobalScrollListener();
