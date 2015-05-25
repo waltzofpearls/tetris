@@ -1,8 +1,6 @@
 'use strict';
 
-define([
-  'jquery', 'underscore', 'backbone', 'app', 'router', 'sinon', 'jasmine-sinon'
-], function($, _, Backbone, App, Router) {
+define(['app', 'router'], function(App, Router) {
   describe('App entrypoint', function() {
     it('defined all the necessary properties', function() {
       expect(App.app).toBeDefined();

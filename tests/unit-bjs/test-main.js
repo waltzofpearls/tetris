@@ -12,7 +12,9 @@ requirejs.config({
   baseUrl: '/base/public/javascripts/',
 
   shim: {
-    'bootstrap': {'deps': ['jquery']}
+    'bootstrap': {deps: ['jquery']},
+    'jasmine-sinon': {deps: ['sinon']},
+    'jasmine-jquery': {deps: ['jquery']},
   },
 
   paths: {
@@ -21,6 +23,7 @@ requirejs.config({
     'jquery': 'libs/jquery-1.11.1',
     'sinon': 'libs/sinon-1.14.1',
     'jasmine-sinon': 'libs/jasmine-sinon-0.4.0',
+    'jasmine-jquery': 'libs/jasmine-jquery-2.1.0',
     'marked': 'libs/marked-0.3.3',
     'templates': '../templates',
     'underscore': 'libs/underscore-1.7.0',
@@ -29,7 +32,14 @@ requirejs.config({
   },
 
   // ask Require.js to load these files (all our tests)
-  deps: tests,
+  deps: [
+    'jquery',
+    'underscore',
+    'backbone',
+    'sinon',
+    'jasmine-sinon',
+    'jasmine-jquery'
+  ].concat(tests),
 
   // start test run, once Require.js is done
   callback: window.__karma__.start

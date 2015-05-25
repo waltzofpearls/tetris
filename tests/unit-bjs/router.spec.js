@@ -1,8 +1,6 @@
 'use strict';
 
-define([
-  'jquery', 'underscore', 'backbone', 'router', 'sinon', 'jasmine-sinon'
-], function($, _, Backbone, Router) {
+define(['router'], function(Router) {
   describe('Router routes', function() {
     var router, routeSpy;
 

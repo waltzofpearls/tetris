@@ -2,7 +2,7 @@
 
 require.config({
     shim: {
-        'bootstrap': {'deps': ['jquery']}
+        'bootstrap': {deps: ['jquery']}
     },
     paths: {
         'backbone': 'libs/backbone-1.1.2',
