@@ -1,21 +1,20 @@
 'use strict';
 
-require(['/base/public/javascripts/config.js'], function() {
-  var tests = [];
-  for (var file in window.__karma__.files) {
-    if (/spec\.js$/.test(file)) {
-      tests.push(file);
-    }
+var tests = [];
+for (var file in window.__karma__.files) {
+  if (/spec\.js$/.test(file)) {
+    tests.push(file);
   }
+}
 
+require(['/base/public/javascripts/config.js'], function() {
   requirejs.config({
     // Karma serves files from '/base'
     baseUrl: '/base/public/javascripts/',
 
     shim: {
       'jasmine-sinon': {deps: ['sinon']},
-      'jasmine-jquery': {deps: ['jquery']},
-      'squire': {exports: 'squire'}
+      'jasmine-jquery': {deps: ['jquery']}
     },
 
     paths: {
@@ -25,7 +24,6 @@ require(['/base/public/javascripts/config.js'], function() {
       'squire': 'libs/squire-0.2.1'
     },
 
-    // ask Require.js to load these files (all our tests)
     deps: [
       'jquery',
       'underscore',
@@ -33,9 +31,11 @@ require(['/base/public/javascripts/config.js'], function() {
       'sinon',
       'jasmine-sinon',
       'jasmine-jquery'
-    ].concat(tests),
-
-    // start test run, once Require.js is done
-    callback: window.__karma__.start
+    ]
   });
+});
+
+// ask Require.js to load these files (all our tests)
+require(tests, function() {
+    window.__karma__.start();
 });
