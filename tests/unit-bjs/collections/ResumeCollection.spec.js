@@ -2,12 +2,19 @@
 
 define(['squire'], function(Squire) {
   var injector = new Squire();
-  // var builder = injector
-  //   .mock('foo', {
-  //     message: "Hello, World!"
-  //   });
 
-  // injector
-  //   .require(['collections/ResumeCollection'], function(ResumeCollection) {
-  // });
+  injector
+    .mock('foo', {
+      message: 'Hello, World!'
+    })
+    .require(['collections/ResumeCollection'], function(ResumeCollection) {
+
+      // describe('qs.params', function() {
+      //   it('should contain an objet of all query string params', function() {
+
+      //   });
+      // });
+
+    });
+
 });
