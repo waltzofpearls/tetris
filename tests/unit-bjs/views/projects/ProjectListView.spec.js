@@ -1,13 +1,18 @@
 'use strict';
 
-define(['views/projects/ProjectsListView'], function(ProjectsListView) {
+define(['squire'], function(Squire) {
+  var injector = new Squire();
+
   describe('ProjectsListView', function() {
     var view;
 
-    beforeEach(function() {
-      view = new ProjectsListView({
-        app: {},
-        tube: _.extend({}, Backbone.Events)
+    beforeEach(function(done) {
+      injector.require(['views/projects/ProjectsListView'], function(ProjectsListView) {
+        view = new ProjectsListView({
+          app: {},
+          tube: _.extend({}, Backbone.Events)
+        });
+        done();
       });
     });
 
@@ -20,5 +25,7 @@ define(['views/projects/ProjectsListView'], function(ProjectsListView) {
         expect($(view.el)).toHaveClass('tetris-page-projects');
       });
     });
+
   });
+
 });

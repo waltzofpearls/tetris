@@ -37,5 +37,5 @@ require(['/base/public/javascripts/config.js'], function() {
 
 // ask Require.js to load these files (all our tests)
 require(tests, function() {
-    window.__karma__.start();
+  window.__karma__.start();
 });

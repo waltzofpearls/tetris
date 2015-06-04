@@ -1,12 +1,17 @@
 'use strict';
 
-define(['models/ResumeModel'], function(ResumeModel) {
+define(['squire'], function(Squire) {
+  var injector = new Squire();
+
   describe('Resume model', function() {
     var model;
 
-    beforeEach(function() {
-      model = new ResumeModel({
-        title: 'Rollie Ma'
+    beforeEach(function(done) {
+      injector.require(['models/ResumeModel'], function(ResumeModel) {
+        model = new ResumeModel({
+          title: 'Rollie Ma'
+        });
+        done();
       });
     });
 
@@ -25,5 +30,7 @@ define(['models/ResumeModel'], function(ResumeModel) {
         expect(model.url()).toEqual(collection.url);
       });
     });
+
   });
+
 });

@@ -1,13 +1,18 @@
 'use strict';
 
-define(['views/HomeView'], function(HomeView) {
+define(['squire'], function(Squire) {
+  var injector = new Squire();
+
   describe('HomeView', function() {
     var view;
 
-    beforeEach(function() {
-      view = new HomeView({
-        app: {},
-        tube: _.extend({}, Backbone.Events)
+    beforeEach(function(done) {
+      injector.require(['views/HomeView'], function(HomeView) {
+        view = new HomeView({
+          app: {},
+          tube: _.extend({}, Backbone.Events)
+        });
+        done();
       });
     });
 
@@ -20,5 +25,7 @@ define(['views/HomeView'], function(HomeView) {
         expect($(view.el)).toHaveClass('tetris-page-home');
       });
     });
+
   });
+
 });

@@ -3,19 +3,25 @@
 define(['squire'], function(Squire) {
   var injector = new Squire();
 
-  injector.require(['app'], function(App) {
+  describe('App entrypoint', function() {
+    var app;
 
-    describe('App entrypoint', function() {
-      it('defined all the necessary properties', function() {
-        expect(App.app).toBeDefined();
-        expect(App.tube).toBeDefined();
-        expect(App.initialize).toBeDefined();
+    beforeEach(function(done) {
+      injector.require(['app'], function(App) {
+        app = App;
+        done();
       });
+    });
 
-      it('can be properly initialized', function() {
-        var isInstanceOf = (App.initialize() instanceof Backbone.Router);
-        expect(isInstanceOf).toBeTruthy();
-      });
+    it('defined all the necessary properties', function() {
+      expect(app.app).toBeDefined();
+      expect(app.tube).toBeDefined();
+      expect(app.initialize).toBeDefined();
+    });
+
+    it('can be properly initialized', function() {
+      var isInstanceOf = (app.initialize() instanceof Backbone.Router);
+      expect(isInstanceOf).toBeTruthy();
     });
 
   });

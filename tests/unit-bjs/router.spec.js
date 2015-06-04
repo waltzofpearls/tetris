@@ -1,16 +1,21 @@
 'use strict';
 
-define(['router'], function(Router) {
+define(['squire'], function(Squire) {
+  var injector = new Squire();
+
   describe('Router routes', function() {
     var router, routeSpy;
 
-    beforeEach(function() {
-      router = Router.initialize();
-      routeSpy = sinon.spy();
-      try {
-        Backbone.history.start({silent: true, pushState: true});
-      } catch(e) { }
-      router.navigate('elsewhere');
+    beforeEach(function(done) {
+      injector.require(['router'], function(Router) {
+        router = Router.initialize();
+        routeSpy = sinon.spy();
+        try {
+          Backbone.history.start({silent: true, pushState: true});
+        } catch(e) { }
+        router.navigate('elsewhere');
+        done();
+      });
     });
 
     afterEach(function() {

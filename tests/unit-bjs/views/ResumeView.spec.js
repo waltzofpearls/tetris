@@ -1,13 +1,18 @@
 'use strict';
 
-define(['views/ResumeView'], function(ResumeView) {
+define(['squire'], function(Squire) {
+  var injector = new Squire();
+
   describe('ResumeView', function() {
     var view;
 
-    beforeEach(function() {
-      view = new ResumeView({
-        app: {},
-        tube: _.extend({}, Backbone.Events)
+    beforeEach(function(done) {
+      injector.require(['views/ResumeView'], function(ResumeView) {
+        view = new ResumeView({
+          app: {},
+          tube: _.extend({}, Backbone.Events)
+        });
+        done();
       });
     });
 
@@ -20,5 +25,7 @@ define(['views/ResumeView'], function(ResumeView) {
         expect($(view.el)).toHaveClass('tetris-page-resume');
       });
     });
+
   });
+
 });

@@ -1,12 +1,17 @@
 'use strict';
 
-define(['models/projects/ProjectsListModel'], function(ProjectsListModel) {
+define(['squire'], function(Squire) {
+  var injector = new Squire();
+
   describe('ProjectsList model', function() {
     var model;
 
-    beforeEach(function() {
-      model = new ProjectsListModel({
-        title: 'Project Insight'
+    beforeEach(function(done) {
+      injector.require(['models/projects/ProjectsListModel'], function(ProjectsListModel) {
+        model = new ProjectsListModel({
+          title: 'Project Insight'
+        });
+        done();
       });
     });
 
@@ -25,5 +30,7 @@ define(['models/projects/ProjectsListModel'], function(ProjectsListModel) {
         expect(model.url()).toEqual(collection.url);
       });
     });
+
   });
+
 });
