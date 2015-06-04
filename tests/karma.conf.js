@@ -7,7 +7,11 @@ module.exports = function(config) {
     files: [
       {pattern: 'public/javascripts/**/*.js', included: false},
       {pattern: 'public/templates/**/*.html', included: false},
+      {pattern: 'public/images/**/*.gif', included: false},
+      {pattern: 'public/images/**/*.png', included: false},
+      {pattern: 'public/data/**/*.json', included: false},
       {pattern: 'tests/unit-bjs/**/*.spec.js', included: false},
+      {pattern: 'tests/unit-bjs/**/*.json', included: false},
       'tests/unit-bjs/test-main.js'
     ],
 
@@ -31,6 +35,12 @@ module.exports = function(config) {
       'karma-requirejs'
     ],
 
-    reporters: ['dots']
+    reporters: ['dots'],
+
+    proxies: {
+      '/images/spinner1.gif': '/base/public/images/spinner1.gif',
+      '/data/resume.json': '/base/tests/unit-bjs/mocks/resume.json',
+      '/api/projects': '/base/tests/unit-bjs/mocks/projects.json'
+    }
   });
 };
