@@ -24,8 +24,10 @@ define(['squire'], function(Squire) {
 
     it('can be properly initialized', function(done) {
       injector.require(['app'], function(App) {
-        var isInstanceOf = (App.initialize() instanceof Backbone.Router);
-        expect(isInstanceOf).toBeTruthy();
+        var isInstanceOfRouter = (
+          App.initialize() instanceof Backbone.Router
+        );
+        expect(isInstanceOfRouter).toBeTruthy();
         done();
       });
     });
