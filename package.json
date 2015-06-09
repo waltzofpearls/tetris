@@ -16,6 +16,12 @@
     "prekarma": "npm install",
     "karma": "karma",
 
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor tests/protractor.conf.js",
+
     "development": "NODE_ENV=development npm start",
     "testing": "NODE_ENV=testing npm start",
     "production": "NODE_ENV=production npm start"
@@ -61,6 +67,7 @@
     "karma-requirejs": "^0.2.2",
     "less-plugin-clean-css": "^1.5.0",
     "mocha": "^2.2.1",
+    "protractor": "^1.1.1",
     "requirejs": "^2.1.17",
     "should": "^5.2.0"
   },
