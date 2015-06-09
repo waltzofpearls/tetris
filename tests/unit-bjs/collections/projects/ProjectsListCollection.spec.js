@@ -18,16 +18,23 @@ define(['squire'], function(Squire) {
 
       beforeEach(function(done) {
         injector
-          .mock('models/projects/ProjectsListModel', sinon.stub().returns(
-            new Backbone.Model({ id: 5, title: 'Foo' })
-          ))
+          .store('models/projects/ProjectsListModel')
           .require([
-            'collections/projects/ProjectsListCollection'
-          ], function(ProjectsListCollection) {
+            'collections/projects/ProjectsListCollection',
+            'mocks'
+          ], function(ProjectsListCollection, mocks) {
+            model = sinon
+              .stub(mocks.store, 'models/projects/ProjectsListModel')
+              .returns( new Backbone.Model({ id: 5, title: 'Foo' }) );
             collection = new ProjectsListCollection();
+            collection.model = model;
             collection.add({ id: 5, title: 'Foo' });
             done();
           });
+      });
+
+      afterEach(function() {
+        model.restore();
       });
 
       it('should add a model', function() {
