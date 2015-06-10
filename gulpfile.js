@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var karma = require('karma').server;
 var plugins = require('gulp-load-plugins')();
 var LessPluginCleanCSS = require('less-plugin-clean-css');
 var cleancss = new LessPluginCleanCSS({ advanced: true })
