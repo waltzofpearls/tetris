@@ -50,6 +50,37 @@ gulp.task('rjs', plugins.shell.task([
 ]));
 
 //
+// $ gulp mocha-test
+//
+gulp.task('mocha-test', function() {
+  return gulp.src('./tests/unit-node/**/*_test.js')
+    .pipe(plugins.mocha({
+      reporter: 'spec',
+      bail: true,
+      ignoreLeaks: false
+    }));
+});
+
+//
+// $ gulp karma-tdd
+//
+gulp.task('karma-tdd', function(done) {
+  karma.start({
+    configFile: __dirname + '/tests/karma.conf.js'
+  }, done);
+});
+
+//
+// $ gulp karma-single-run
+//
+gulp.task('karma-single-run', function(done) {
+  karma.start({
+    configFile: __dirname + '/tests/karma.conf.js',
+    singleRun: true
+  }, done);
+});
+
+//
 // $ gulp docker:build
 //
 gulp.task('docker:build', plugins.shell.task([
@@ -117,6 +148,23 @@ gulp.task('docker:pull', plugins.shell.task([
   'docker pull <%= repo %>'
 ], { templateData: docker }));
 
+//
+// $ gulp tdd
+// $ gulp tdd:backend
+// $ gulp tdd:frontend
+//
+gulp.task('tdd:frontend', ['karma-tdd']);
+gulp.task('tdd:backend', ['mocha-test']);
+gulp.task('tdd', ['tdd:backend', 'tdd:frontend']);
+
+//
+// $ gulp test
+// $ gulp test:backend
+// $ gulp test:frontend
+//
+gulp.task('test:frontend', ['karma-single-run']);
+gulp.task('test:backend', ['mocha-test']);
+gulp.task('test', ['test:backend', 'test:frontend']);
 
 //
 // Gulp's default task

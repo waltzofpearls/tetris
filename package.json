@@ -8,7 +8,8 @@
     "start": "DEBUG=tetris node ./bin/www",
 
     "pretest": "npm install",
-    "test": "mocha --reporter spec --bail --check-leaks tests/unit-node",
+    "test": "gulp test",
+    "test-tdd": "gulp tdd",
 
     "pregulp": "npm install",
     "gulp": "gulp",
