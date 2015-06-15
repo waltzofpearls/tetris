@@ -1,0 +1,13 @@
+{
+  "name": "tetris",
+  "version": "0.0.0",
+  "homepage": "https://github.com/waltzofpearls/tetris",
+  "authors": [
+    "Rollie Ma <rollie@rolli3.net, rollie.ma@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "cal-heatmap": "^3.5.2"
+  }
+}
