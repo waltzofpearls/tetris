@@ -1,7 +1,8 @@
 'use strict';
 
 require(['config'], function() {
-    require(['app'], function(App) {
+    require(['app', 'ga'], function(App, Ga) {
         App.initialize();
+        Ga('send', 'pageview');
     });
 });

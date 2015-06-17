@@ -42,12 +42,13 @@ gulp.task('rjs', plugins.shell.task([
   'r.js -o \
     name=main \
     baseUrl=public/javascripts/ \
-    mainConfigFile=public/javascripts/main.js \
+    mainConfigFile=public/javascripts/config.js \
     out=public/javascripts/main.min.js \
     preserveLicenseComments=false \
     findNestedDependencies=true \
     optimize=uglify2 \
-    generateSourceMaps=true'
+    generateSourceMaps=true \
+    paths.ga=empty:'
 ]));
 
 //
