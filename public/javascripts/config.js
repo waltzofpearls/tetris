@@ -14,6 +14,8 @@ require.config({
     paths: {
         'backbone': 'libs/backbone-1.1.2',
         'bootstrap': 'libs/bootstrap-3.3.1',
+        'cal-heatmap': 'bower/cal-heatmap/cal-heatmap',
+        'd3': 'bower/d3/d3',
         'domReady': 'libs/require-2.1.15/domReady',
         'ga': '//www.google-analytics.com/analytics',
         'jquery': 'libs/jquery-1.11.1',
