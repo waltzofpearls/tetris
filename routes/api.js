@@ -1,22 +1,30 @@
-var express = require('express');
+'use strict';
+
 var config = require('config');
-var github = require('../lib/github');
+var express = require('express');
+var LibGithub = require('../lib/github');
 
 var router = express.Router();
+var github = new LibGithub();
 
 router.get('/', function(req, res) {
     res.send('respond with a resource');
 });
 
 router.get('/projects', function(req, res) {
-    var gh = new github();
-
-    gh.getRepos()
-        .then(function(_res) {
-            res.send(_res);
+    github.getRepos()
+        .then(function(data) {
+            res.send(data);
         })
-        .fail(function(_err) {
-            res.send(_err);
+        .fail(function(err) {
+            res.send(err);
+        });
+});
+
+router.get('/contributions', function(req, res) {
+    github.getContributions()
+        .then(function(data) {
+            res.send(data);
         });
 });
 
