@@ -6,8 +6,8 @@ define([
     'backbone',
     'marked',
     'utils/Partial',
-    'collections/ResumeCollection',
-    'text!templates/resumeTemplate.html'
+    'collections/resume/ResumeCollection',
+    'text!templates/resume/resumeTemplate.html'
 ], function($, _, Backbone, Marked, Partial, ResumeCollection, resumeTemplate) {
     var ResumeView = Backbone.View.extend({
         tagName: 'div',
