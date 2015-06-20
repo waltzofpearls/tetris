@@ -7,7 +7,7 @@ define(['squire'], function(Squire) {
     var view;
 
     beforeEach(function(done) {
-      injector.require(['views/ResumeView'], function(ResumeView) {
+      injector.require(['views/resume/ResumeView'], function(ResumeView) {
         view = new ResumeView({
           app: {},
           tube: _.extend({}, Backbone.Events)

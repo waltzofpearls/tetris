@@ -7,7 +7,7 @@ define(['squire'], function(Squire) {
     var model;
 
     beforeEach(function(done) {
-      injector.require(['models/ResumeModel'], function(ResumeModel) {
+      injector.require(['models/resume/ResumeModel'], function(ResumeModel) {
         model = new ResumeModel({
           title: 'Rollie Ma'
         });

@@ -7,7 +7,7 @@ define(['squire'], function(Squire) {
     var view;
 
     beforeEach(function(done) {
-      injector.require(['views/HomeView'], function(HomeView) {
+      injector.require(['views/home/HomeView'], function(HomeView) {
         view = new HomeView({
           app: {},
           tube: _.extend({}, Backbone.Events)

@@ -18,13 +18,13 @@ define(['squire'], function(Squire) {
 
       beforeEach(function(done) {
         injector
-          .store('models/ResumeModel')
+          .store('models/resume/ResumeModel')
           .require([
-            'collections/ResumeCollection',
+            'collections/resume/ResumeCollection',
             'mocks'
           ], function(ResumeCollection, mocks) {
             model = sinon
-              .stub(mocks.store, 'models/ResumeModel')
+              .stub(mocks.store, 'models/resume/ResumeModel')
               .returns( new Backbone.Model({ id: 5, title: 'Foo' }) );
             collection = new ResumeCollection();
             collection.model = model;
@@ -52,7 +52,7 @@ define(['squire'], function(Squire) {
       beforeEach(function(done) {
         injector
           .require([
-            'collections/ResumeCollection'
+            'collections/resume/ResumeCollection'
           ], function(ResumeCollection) {
             server = sinon.fakeServer.create();
             collection = new ResumeCollection();

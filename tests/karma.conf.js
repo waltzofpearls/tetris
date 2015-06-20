@@ -40,7 +40,8 @@ module.exports = function(config) {
     proxies: {
       '/images/spinner1.gif': '/base/public/images/spinner1.gif',
       '/data/resume.json': '/base/tests/unit-bjs/mocks/resume.json',
-      '/api/projects': '/base/tests/unit-bjs/mocks/projects.json'
+      '/api/projects': '/base/tests/unit-bjs/mocks/projects.json',
+      '/api/contributions': '/base/tests/unit-bjs/mocks/contributions.json'
     }
   });
 };
