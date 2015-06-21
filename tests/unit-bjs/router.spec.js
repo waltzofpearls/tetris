@@ -8,7 +8,7 @@ define(['squire'], function(Squire) {
 
     beforeEach(function(done) {
       injector.require(['router'], function(Router) {
-        router = Router.initialize();
+        router = Router.initialize({app: null, tube: null});
         routeSpy = sinon.spy();
         try {
           Backbone.history.start({silent: true, pushState: true});

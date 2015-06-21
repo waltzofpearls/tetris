@@ -7,10 +7,10 @@ for (var file in window.__karma__.files) {
   }
 }
 
-require(['/base/public/javascripts/config.js'], function() {
+require(['/base/public/javascripts/src/config.js'], function() {
   requirejs.config({
     // Karma serves files from '/base'
-    baseUrl: '/base/public/javascripts/',
+    baseUrl: '/base/public/javascripts/src/',
 
     shim: {
       'jasmine-sinon': {deps: ['sinon']},
@@ -18,10 +18,10 @@ require(['/base/public/javascripts/config.js'], function() {
     },
 
     paths: {
-      'sinon': 'libs/sinon-1.14.1',
-      'jasmine-sinon': 'libs/jasmine-sinon-0.4.0',
-      'jasmine-jquery': 'libs/jasmine-jquery-2.1.0',
-      'squire': 'libs/squire-0.2.1'
+      'sinon': '../bower/sinonjs/sinon',
+      'jasmine-sinon': '../bower/jasmine-sinon/lib/jasmine-sinon',
+      'jasmine-jquery': '../bower/jasmine-jquery/lib/jasmine-jquery',
+      'squire': '../bower/squire/src/Squire'
     },
 
     deps: [

@@ -16,23 +16,23 @@ var docker = {
 // $ gulp less
 //
 gulp.task('less', function() {
-  return gulp.src('public/stylesheets/style.less')
+  return gulp.src('public/stylesheets/src/style.less')
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.less({
       plugins: [cleancss]
     }))
     .pipe(plugins.sourcemaps.write('./'))
-    .pipe(gulp.dest('public/stylesheets'));
+    .pipe(gulp.dest('public/stylesheets/dist'));
 });
 
 //
 // $ gulp js
 //
 gulp.task('js', function() {
-  return gulp.src('public/javascripts/libs/require-2.1.15/require.js')
+  return gulp.src('public/javascripts/bower/requirejs/require.js')
     .pipe(plugins.rename('require.min.js'))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest('public/javascripts/libs/require-2.1.15/'));
+    .pipe(gulp.dest('public/javascripts/dist/'));
 });
 
 //
@@ -41,9 +41,9 @@ gulp.task('js', function() {
 gulp.task('rjs', plugins.shell.task([
   'r.js -o \
     name=main \
-    baseUrl=public/javascripts/ \
-    mainConfigFile=public/javascripts/config.js \
-    out=public/javascripts/main.min.js \
+    baseUrl=public/javascripts/src/ \
+    mainConfigFile=public/javascripts/src/config.js \
+    out=public/javascripts/dist/main.min.js \
     preserveLicenseComments=false \
     findNestedDependencies=true \
     optimize=uglify2 \

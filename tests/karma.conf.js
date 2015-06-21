@@ -5,7 +5,20 @@ module.exports = function(config) {
     basePath: '../',
 
     files: [
-      {pattern: 'public/javascripts/**/*.js', included: false},
+      {pattern: 'public/javascripts/bower/backbone/backbone.js', included: false},
+      {pattern: 'public/javascripts/bower/bootstrap/dist/js/bootstrap.js', included: false},
+      {pattern: 'public/javascripts/bower/cal-heatmap/cal-heatmap.js', included: false},
+      {pattern: 'public/javascripts/bower/d3/d3.js', included: false},
+      {pattern: 'public/javascripts/bower/requirejs-domready/domReady.js', included: false},
+      {pattern: 'public/javascripts/bower/jquery/dist/jquery.js', included: false},
+      {pattern: 'public/javascripts/bower/marked/lib/marked.js', included: false},
+      {pattern: 'public/javascripts/bower/requirejs-text/text.js', included: false},
+      {pattern: 'public/javascripts/bower/underscore/underscore.js', included: false},
+      {pattern: 'public/javascripts/bower/sinonjs/sinon.js', included: false},
+      {pattern: 'public/javascripts/bower/jasmine-sinon/lib/jasmine-sinon.js', included: false},
+      {pattern: 'public/javascripts/bower/jasmine-jquery/lib/jasmine-jquery.js', included: false},
+      {pattern: 'public/javascripts/bower/squire/src/Squire.js', included: false},
+      {pattern: 'public/javascripts/src/**/*.js', included: false},
       {pattern: 'public/templates/**/*.html', included: false},
       {pattern: 'public/images/**/*.gif', included: false},
       {pattern: 'public/images/**/*.png', included: false},
@@ -16,9 +29,7 @@ module.exports = function(config) {
     ],
 
     exclude: [
-      'public/javascripts/main.js',
-      'public/javascripts/main.min.js',
-      'public/javascripts/libs/require-2.1.15/require.min.js'
+      'public/javascripts/src/main.js'
     ],
 
     singleRun: true,
