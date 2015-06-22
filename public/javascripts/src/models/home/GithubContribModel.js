@@ -5,9 +5,7 @@ define([
     'backbone'
 ], function(_, Backbone) {
     var GithubContribModel = Backbone.Model.extend({
-        defaults: {
-            svg: ''
-        }
+        defaults: {}
     });
 
     return GithubContribModel;

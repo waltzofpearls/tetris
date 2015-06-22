@@ -9,6 +9,7 @@ window.__ga__ = {
 require.config({
     shim: {
         'bootstrap': {deps: ['jquery']},
+        'cal-heatmap': {deps: ['d3']},
         'ga': {exports: '__ga__'}
     },
     paths: {

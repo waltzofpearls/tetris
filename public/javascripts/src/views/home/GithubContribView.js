@@ -4,10 +4,11 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'cal-heatmap',
     'utils/Partial',
     'collections/home/GithubContribCollection',
     'text!templates/home/githubContribTemplate.html'
-], function($, _, Backbone, Partial, GithubContribCollection, githubContribTemplate) {
+], function($, _, Backbone, CalHeatmap, Partial, GithubContribCollection, githubContribTemplate) {
     var ResumeView = Backbone.View.extend({
         tagName: 'div',
         className: 'tetris-view-github-contrib',
@@ -25,13 +26,27 @@ define([
             this.collection = new GithubContribCollection();
             this.xhr = this.collection.fetch({
                 success: function(collection, response) {
+                    var cal = new CalHeatMap();
+                    var data = collection.toJSON();
+
                     that.$el.html(_.template(githubContribTemplate)({
                         _: _,
-                        heatmap: collection.models[0]
                     }));
+
+                    cal.init({
+                        itemSelector: '.tetris-heatmap',
+                        domain: 'month',
+                        // subDomain: 'day',
+                        data: collection.toJSON(),
+                        // start: new Date(2015, 0),
+                        dataType: 'json',
+                        cellSize: 15,
+                        range: 12,
+                        legend: [2, 4, 6, 8]
+                    });
+
                     that.xhr = null;
-                },
-                dataType: 'html'
+                }
             });
 
             this.$el.html(_.template(Partial.template.loader)(Partial.preload));

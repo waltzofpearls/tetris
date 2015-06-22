@@ -8,15 +8,7 @@ define([
     var GithubContribCollection = Backbone.Collection.extend({
         model: GithubContribModel,
 
-        url: '/api/contributions',
-
-        parse: function(res) {
-            return [
-                new GithubContribModel({
-                    svg: res
-                })
-            ];
-        }
+        url: '/api/contributions'
     });
 
     return GithubContribCollection;
