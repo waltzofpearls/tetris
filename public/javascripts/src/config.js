@@ -9,14 +9,14 @@ window.__ga__ = {
 require.config({
     shim: {
         'bootstrap': {deps: ['jquery']},
-        'cal-heatmap': {deps: ['d3']},
+        // 'cal-heatmap': ['d3'],
         'ga': {exports: '__ga__'}
     },
     paths: {
         'backbone': '../bower/backbone/backbone',
         'bootstrap': '../bower/bootstrap/dist/js/bootstrap',
-        'cal-heatmap': '../bower/cal-heatmap/cal-heatmap',
-        'd3': '../bower/d3/d3',
+        // 'cal-heatmap': '../bower/cal-heatmap/cal-heatmap',
+        // 'd3': '../bower/d3/d3',
         'domReady': '../bower/requirejs-domready/domReady',
         'ga': '//www.google-analytics.com/analytics',
         'jquery': '../bower/jquery/dist/jquery',

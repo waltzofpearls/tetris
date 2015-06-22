@@ -74,7 +74,7 @@
     "less-plugin-clean-css": "^1.5.0",
     "mocha": "^2.2.1",
     "protractor": "^1.1.1",
-    "requirejs": "^2.1.17",
+    "requirejs": "^2.1.18",
     "should": "^5.2.0"
   },
   "engines": {

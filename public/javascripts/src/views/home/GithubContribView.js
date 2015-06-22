@@ -4,11 +4,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'cal-heatmap',
     'utils/Partial',
     'collections/home/GithubContribCollection',
     'text!templates/home/githubContribTemplate.html'
-], function($, _, Backbone, CalHeatmap, Partial, GithubContribCollection, githubContribTemplate) {
+], function(
+    $, _, Backbone, Partial, GithubContribCollection, githubContribTemplate
+) {
     var ResumeView = Backbone.View.extend({
         tagName: 'div',
         className: 'tetris-view-github-contrib',
