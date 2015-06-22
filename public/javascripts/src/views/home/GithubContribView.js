@@ -27,22 +27,31 @@ define([
             this.xhr = this.collection.fetch({
                 success: function(collection, response) {
                     var cal = new CalHeatMap();
-                    var data = collection.toJSON();
+                    var data = collection.models[0].toJSON();
+                    var i = 0;
+                    var timestamp;
 
                     that.$el.html(_.template(githubContribTemplate)({
-                        _: _,
+                        _: _
                     }));
+
+                    for (timestamp in data) {
+                        if (i > 0) {
+                            break;
+                        }
+                        i++;
+                    }
 
                     cal.init({
                         itemSelector: '.tetris-heatmap',
                         domain: 'month',
-                        // subDomain: 'day',
-                        data: collection.toJSON(),
-                        // start: new Date(2015, 0),
-                        dataType: 'json',
+                        data: data,
+                        start: new Date(timestamp*1000),
                         cellSize: 15,
                         range: 12,
-                        legend: [2, 4, 6, 8]
+                        legend: [2, 4, 6, 8],
+                        tooltip: true,
+                        considerMissingDataAsZero: true
                     });
 
                     that.xhr = null;
