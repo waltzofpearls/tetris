@@ -68,8 +68,6 @@ html
     case process.env.NODE_ENV
       when 'testing'
       when 'production'
-        script(src='javascripts/bower/d3/d3.min.js')
-        script(src='javascripts/bower/cal-heatmap/cal-heatmap.min.js')
         script(data-main='javascripts/dist/main.min', src='javascripts/dist/require.min.js')
       when 'development'
       default

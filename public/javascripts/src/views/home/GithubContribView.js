@@ -4,11 +4,12 @@ define([
     'jquery',
     'underscore',
     'backbone',
+    'cal-heatmap',
     'utils/Partial',
     'collections/home/GithubContribCollection',
     'text!templates/home/githubContribTemplate.html'
 ], function(
-    $, _, Backbone, Partial, GithubContribCollection, githubContribTemplate
+    $, _, Backbone, CalHeatMap, Partial, GithubContribCollection, githubContribTemplate
 ) {
     var ResumeView = Backbone.View.extend({
         tagName: 'div',
@@ -44,15 +45,15 @@ define([
                     }
 
                     cal.init({
-                        itemSelector: '.tetris-heatmap',
-                        domain: 'month',
-                        data: data,
-                        start: new Date(timestamp*1000),
-                        cellSize: 15,
-                        range: 12,
-                        legend: [2, 4, 6, 8],
-                        tooltip: true,
-                        considerMissingDataAsZero: true
+                      itemSelector: '.tetris-heatmap',
+                      domain: 'month',
+                      data: data,
+                      start: new Date(timestamp*1000),
+                      cellSize: 15,
+                      range: 12,
+                      legend: [2, 4, 6, 8],
+                      tooltip: true,
+                      considerMissingDataAsZero: true
                     });
 
                     that.xhr = null;

@@ -13,24 +13,28 @@ require(['/base/public/javascripts/src/config.js'], function() {
     baseUrl: '/base/public/javascripts/src/',
 
     shim: {
+      // 'cal-heatmap': {deps: ['d3']},
       'jasmine-sinon': {deps: ['sinon']},
       'jasmine-jquery': {deps: ['jquery']}
     },
 
     paths: {
-      'sinon': '../bower/sinonjs/sinon',
-      'jasmine-sinon': '../bower/jasmine-sinon/lib/jasmine-sinon',
+      // 'cal-heatmap': '../bower/cal-heatmap/cal-heatmap',
+      // 'd3': '../bower/d3/d3',
       'jasmine-jquery': '../bower/jasmine-jquery/lib/jasmine-jquery',
+      'jasmine-sinon': '../bower/jasmine-sinon/lib/jasmine-sinon',
+      'sinon': '../bower/sinonjs/sinon',
       'squire': '../bower/squire/src/Squire'
     },
 
     deps: [
-      'jquery',
-      'underscore',
       'backbone',
-      'sinon',
+      // 'cal-heatmap',
+      'jasmine-jquery',
       'jasmine-sinon',
-      'jasmine-jquery'
+      'jquery',
+      'sinon',
+      'underscore'
     ]
   });
 });
