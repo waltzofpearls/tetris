@@ -45,10 +45,10 @@ define([
                     }
 
                     cal.init({
-                      itemSelector: '.tetris-heatmap',
+                      itemSelector: that.$('.tetris-heatmap')[0],
                       domain: 'month',
                       data: data,
-                      start: new Date(timestamp*1000),
+                      start: timestamp ? new Date(timestamp*1000) : new Date(),
                       cellSize: 15,
                       range: 12,
                       legend: [2, 4, 6, 8],

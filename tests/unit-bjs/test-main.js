@@ -13,14 +13,11 @@ require(['/base/public/javascripts/src/config.js'], function() {
     baseUrl: '/base/public/javascripts/src/',
 
     shim: {
-      // 'cal-heatmap': {deps: ['d3']},
       'jasmine-sinon': {deps: ['sinon']},
       'jasmine-jquery': {deps: ['jquery']}
     },
 
     paths: {
-      // 'cal-heatmap': '../bower/cal-heatmap/cal-heatmap',
-      // 'd3': '../bower/d3/d3',
       'jasmine-jquery': '../bower/jasmine-jquery/lib/jasmine-jquery',
       'jasmine-sinon': '../bower/jasmine-sinon/lib/jasmine-sinon',
       'sinon': '../bower/sinonjs/sinon',
@@ -29,7 +26,6 @@ require(['/base/public/javascripts/src/config.js'], function() {
 
     deps: [
       'backbone',
-      // 'cal-heatmap',
       'jasmine-jquery',
       'jasmine-sinon',
       'jquery',
