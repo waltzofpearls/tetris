@@ -52,6 +52,7 @@ define([
                       cellSize: 15,
                       range: 12,
                       legend: [2, 4, 6, 8],
+                      itemName: ['contribution', 'contributions'],
                       tooltip: true,
                       considerMissingDataAsZero: true
                     });
