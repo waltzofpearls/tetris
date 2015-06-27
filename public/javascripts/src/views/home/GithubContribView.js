@@ -46,18 +46,29 @@ define([
                 itemSelector: this.$('.tetris-heatmap')[0],
                 domain: 'month',
                 data: this.data,
-                start: this.start,
+                start: this.getApplicableStart(),
                 cellSize: 15,
                 range: this.getApplicableRange(),
                 legend: [2, 4, 6, 8],
                 itemName: ['contribution', 'contributions'],
                 tooltip: true,
-                considerMissingDataAsZero: true
+                considerMissingDataAsZero: true,
+                animationDuration: 0
             });
         },
 
         getApplicableRange: function() {
-            return 12;
+            return Math.ceil(
+                this.$el.width() / 104
+            );
+        },
+
+        getApplicableStart: function() {
+            var date = new Date();
+            date.setMonth(
+                date.getMonth() - this.getApplicableRange() + 1
+            );
+            return date;
         },
 
         render: function() {
@@ -66,24 +77,11 @@ define([
             this.collection = new GithubContribCollection();
             this.xhr = this.collection.fetch({
                 success: function(collection, response) {
-                    var data = collection.models[0].toJSON();
-                    var i = 0;
-                    var timestamp;
-
                     that.$el.html(_.template(githubContribTemplate)({
                         _: _
                     }));
 
-                    for (timestamp in data) {
-                        if (i > 0) {
-                            break;
-                        }
-                        i++;
-                    }
-
-                    that.start = timestamp ? new Date(timestamp*1000) : new Date();
-                    that.data = data;
-                    that.range = 12;
+                    that.data = collection.models[0].toJSON();
                     that.createNewCalHeatMap();
 
                     that.xhr = null;
