@@ -17,9 +17,47 @@ define([
 
         xhr: null,
 
+        cal: null,
+        start: new Date(),
+        data: {},
+
         initialize: function(options) {
             this.app = options.app;
             this.tube = options.tube;
+
+            $(window).on('resize.github-contrib-view', _.bind(this.handleWindowResize, this));
+        },
+
+        handleWindowResize: function() {
+            this.createNewCalHeatMap();
+        },
+
+        createNewCalHeatMap: function() {
+            if (_.isEmpty(this.data)) {
+                return;
+            }
+
+            if (this.cal !== null) {
+                this.cal = this.cal.destroy();
+            }
+
+            this.cal = new CalHeatMap();
+            this.cal.init({
+                itemSelector: this.$('.tetris-heatmap')[0],
+                domain: 'month',
+                data: this.data,
+                start: this.start,
+                cellSize: 15,
+                range: this.getApplicableRange(),
+                legend: [2, 4, 6, 8],
+                itemName: ['contribution', 'contributions'],
+                tooltip: true,
+                considerMissingDataAsZero: true
+            });
+        },
+
+        getApplicableRange: function() {
+            return 12;
         },
 
         render: function() {
@@ -28,7 +66,6 @@ define([
             this.collection = new GithubContribCollection();
             this.xhr = this.collection.fetch({
                 success: function(collection, response) {
-                    var cal = new CalHeatMap();
                     var data = collection.models[0].toJSON();
                     var i = 0;
                     var timestamp;
@@ -44,18 +81,10 @@ define([
                         i++;
                     }
 
-                    cal.init({
-                      itemSelector: that.$('.tetris-heatmap')[0],
-                      domain: 'month',
-                      data: data,
-                      start: timestamp ? new Date(timestamp*1000) : new Date(),
-                      cellSize: 15,
-                      range: 12,
-                      legend: [2, 4, 6, 8],
-                      itemName: ['contribution', 'contributions'],
-                      tooltip: true,
-                      considerMissingDataAsZero: true
-                    });
+                    that.start = timestamp ? new Date(timestamp*1000) : new Date();
+                    that.data = data;
+                    that.range = 12;
+                    that.createNewCalHeatMap();
 
                     that.xhr = null;
                 }
@@ -74,6 +103,8 @@ define([
                 view.remove();
             });
             this.remove();
+
+            $(window).off('window.github-contrib-view');
         }
     });
 
