@@ -18,7 +18,6 @@ define([
         xhr: null,
 
         cal: null,
-        start: new Date(),
         data: {},
 
         initialize: function(options) {
