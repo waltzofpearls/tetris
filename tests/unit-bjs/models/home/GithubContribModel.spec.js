@@ -3,12 +3,12 @@
 define(['squire'], function(Squire) {
   var injector = new Squire();
 
-  describe('ProjectsList model', function() {
+  describe('GithubContrib model', function() {
     var model;
 
     beforeEach(function(done) {
-      injector.require(['models/projects/ProjectsListModel'], function(ProjectsListModel) {
-        model = new ProjectsListModel({
+      injector.require(['models/home/GithubContribModel'], function(GithubContribModel) {
+        model = new GithubContribModel({
           title: 'Project Insight'
         });
         done();
@@ -24,7 +24,7 @@ define(['squire'], function(Squire) {
     describe('url', function() {
       it("should set the URL to the collection URL", function() {
         var collection = {
-          url: '/api/projects'
+          url: '/api/contributions'
         };
         model.collection = collection;
         expect(model.url()).toEqual(collection.url);
