@@ -2,7 +2,7 @@ FROM waltzofpearls/nodejs
 
 MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 
-ADD bin/docker-image/run /etc/service/tetris/run
+ADD docker/run /etc/service/tetris/run
 
 WORKDIR /srv/www/tetris
 
