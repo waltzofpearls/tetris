@@ -7,7 +7,15 @@ for (var file in window.__karma__.files) {
   }
 }
 
-require(['/base/public/javascripts/src/config.js'], function() {
+// The following 3 lines solves the AMD issue with
+// Cal-HeatMap, which loads d3 with require("d3"),
+// and requirejs doesn't play nice with this kind
+// of script load when it's outside define().
+var require = function(name) {
+  return window[name];
+};
+
+requirejs(['/base/public/javascripts/src/config.js'], function() {
   requirejs.config({
     // Karma serves files from '/base'
     baseUrl: '/base/public/javascripts/src/',
@@ -36,6 +44,6 @@ require(['/base/public/javascripts/src/config.js'], function() {
 });
 
 // ask Require.js to load these files (all our tests)
-require(tests, function() {
+requirejs(tests, function() {
   window.__karma__.start();
 });

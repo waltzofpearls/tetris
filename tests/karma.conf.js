@@ -7,6 +7,7 @@ module.exports = function(config) {
     files: [
       {pattern: 'public/javascripts/bower/backbone/backbone.js', included: false},
       {pattern: 'public/javascripts/bower/bootstrap/dist/js/bootstrap.js', included: false},
+      {pattern: 'public/javascripts/bower/cal-heatmap/cal-heatmap.js', included: false},
       {pattern: 'public/javascripts/bower/d3/d3.js', included: false},
       {pattern: 'public/javascripts/bower/requirejs-domready/domReady.js', included: false},
       {pattern: 'public/javascripts/bower/jquery/dist/jquery.js', included: false},
