@@ -6,22 +6,15 @@
   "scripts": {
     "postinstall": "bower install",
 
-    "prestart": "npm install",
     "start": "DEBUG=tetris node ./bin/www",
-
-    "pretest": "npm install",
-    "test": "gulp test",
-    "test-tdd": "gulp tdd",
 
     "pregulp": "npm install",
     "gulp": "gulp",
 
-    "prekarma": "npm install",
+    "test": "gulp test",
+    "test-tdd": "gulp tdd",
     "karma": "karma",
-
-    "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
-
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor tests/protractor.conf.js",
 
