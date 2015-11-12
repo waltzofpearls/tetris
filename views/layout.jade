@@ -65,6 +65,8 @@ html
             | &copy; #{moment().format('YYYY')} Rollie Ma
           div.col-xs-7.text-right
             | rollie.ma {at} gmail {dot} com
+    script
+      | var require = function(name) { return window[name]; };
     case process.env.NODE_ENV
       when 'testing'
       when 'production'
