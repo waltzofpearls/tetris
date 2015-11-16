@@ -4,6 +4,11 @@
 
 My personal website [tetris] built with the following technologies:
 
+Languages:
+
+* JavaScript
+* Less
+
 Environment:
 
 * Node.js
