@@ -1,12 +1,12 @@
 {
-  "name": "tetris",
+  "name": "tetris-js",
   "author": "Waltz.of.Pearls <rollie@waltzofpearls.net, rollie.ma@gmail.com>",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "postinstall": "bower install",
 
-    "start": "DEBUG=tetris node ./bin/www",
+    "start": "DEBUG=tetris-js node ./bin/www",
 
     "pregulp": "npm install",
     "gulp": "gulp",

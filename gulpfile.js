@@ -7,8 +7,8 @@ var LessPluginCleanCSS = require('less-plugin-clean-css');
 var cleancss = new LessPluginCleanCSS({ advanced: true })
 
 var docker = {
-  repo: 'waltzofpearls/tetris',
-  name: 'tetris',
+  repo: 'waltzofpearls/tetris-js',
+  name: 'tetris-js',
   port: '49002'
 };
 

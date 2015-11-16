@@ -4,7 +4,7 @@ MAINTAINER waltzofpearls <rollie.ma@gmail.com>
 
 ADD docker/run /etc/service/tetris/run
 
-WORKDIR /srv/www/tetris
+WORKDIR /srv/www/tetris-js
 
 COPY . .
 
@@ -15,7 +15,7 @@ RUN \
         config/production.yml < config/dist.yml
 
 ENV PORT 3000
-ENV DEBUG tetris
+ENV DEBUG tetris-js
 
 EXPOSE 3000
 

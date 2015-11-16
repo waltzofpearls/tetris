@@ -1,6 +1,6 @@
 # tetris-js
 
-[![Build Status](https://travis-ci.org/waltzofpearls/tetris.svg)](https://travis-ci.org/waltzofpearls/tetris)
+[![Build Status](https://travis-ci.org/waltzofpearls/tetris-js.svg)](https://travis-ci.org/waltzofpearls/tetris-js)
 
 My personal website [tetris] built with the following technologies:
 
@@ -51,8 +51,8 @@ Package managers:
 To clone, build and run the website, do as follows:
 
 ```
-git clone git@github.com:waltzofpearls/tetris.git
-cd tetris
+git clone git@github.com:waltzofpearls/tetris-js.git
+cd tetris-js
 npm run gulp
 npm run production
 ```

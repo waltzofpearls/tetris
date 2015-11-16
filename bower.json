@@ -1,7 +1,7 @@
 {
-  "name": "tetris",
+  "name": "tetris-js",
   "version": "0.1.0",
-  "homepage": "https://github.com/waltzofpearls/tetris",
+  "homepage": "https://github.com/waltzofpearls/tetris-js",
   "authors": [
     "Waltz.of.Pearls <rollie@waltzofpearls.net, rollie.ma@gmail.com>"
   ],
